@@ -82,7 +82,7 @@ const Tokens = ({
   tokens: Token[];
 }) => {
   const [tobi, searchTobi] = useState(
-    Object.keys(tokenAddresses) as Array<Token>,
+    Object.keys(tokenAddresses) as Array<Token>
   );
   const tokun = Object.keys(tokenAddresses) as Array<Token>;
   return (
@@ -278,13 +278,11 @@ export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
   const [amountField, setAmountField] = useState("");
   const [percentField, setPercent] = useState<PercentageLabel | "">("");
   const [tokenField, setTokenField] = useState<"USDT" | "USDC" | "">("");
-  const [disabled, setDisabled] = useState(
-    tokenField !== "" && (percentField !== "" || amountField !== ""),
-  );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleFields = () => {
     if (tokenField != "" && (percentField != "" || amountField != "")) {
-      setDisabled(!disabled);
+      setIsLoading(true);
       onTokenSelect(tokenField);
       handleClose();
     }
@@ -304,9 +302,13 @@ export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
       <hr className="h-[1px] border border-[#1E1E1E] w-full bg-[#1E1E1E] border-solid rounded" />
       <TokenFieldSet setTokenField={setTokenField} />
       <button
-        disabled={disabled}
+        disabled={
+          (!tokenField.length &&
+            (!percentField.length || !amountField.length)) ||
+          isLoading
+        }
         onClick={handleFields}
-        className={`w-full py-4 text-center rounded-full border-none font-semibold
+        className={`w-full py-4 text-center disabled:bg-opacity-85 disabled:cursor-not-allowed rounded-full border-none font-semibold
           bg-[#2BB2FF] cursor-pointer`}
       >
         Done
@@ -320,7 +322,7 @@ export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
 */
 export function SwapFrom({ handleClose, onTokenSelect, from }: ModalProps) {
   const [tokens, setTokens] = useState<Token[]>(
-    Object.keys(tokenAddresses) as Array<Token>,
+    Object.keys(tokenAddresses) as Array<Token>
   );
 
   const searchTokens = (search: Token) => {
