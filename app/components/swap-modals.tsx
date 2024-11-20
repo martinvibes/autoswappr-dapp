@@ -81,10 +81,6 @@ const Tokens = ({
   onTokenSelect: (token: Token) => void;
   tokens: Token[];
 }) => {
-  const [tobi, searchTobi] = useState(
-    Object.keys(tokenAddresses) as Array<Token>
-  );
-  const tokun = Object.keys(tokenAddresses) as Array<Token>;
   return (
     <div>
       <p className="mb-4">Tokens</p>
@@ -320,7 +316,7 @@ export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
 /**
     Swap From Modal
 */
-export function SwapFrom({ handleClose, onTokenSelect, from }: ModalProps) {
+export function SwapFrom({ handleClose, onTokenSelect }: ModalProps) {
   const [tokens, setTokens] = useState<Token[]>(
     Object.keys(tokenAddresses) as Array<Token>
   );

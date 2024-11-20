@@ -24,9 +24,7 @@ export default function ReactPortal({
 
   useLayoutEffect(() => {
     let container = document.getElementById(containerId);
-    let systemCreated = false;
     if (!container) {
-      systemCreated = true;
       container = createContainerAndAppendToBody(containerId);
     }
     setContainerElement(container!);

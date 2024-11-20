@@ -22,13 +22,18 @@ const Swapper = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [rate, setRate] = useState(0);
-  const [balance, setBalance] = useState("100");
-
   const { address } = useAccount();
+
+  const updateRate = () => {
+    const fromPrice = tokenPrices[fromToken];
+    const toPrice = tokenPrices[toToken];
+    const newRate = toPrice / fromPrice;
+    setRate(newRate);
+  };
 
   useEffect(() => {
     updateRate();
-  }, [fromToken, toToken]);
+  }, [updateRate, fromToken, toToken]);
 
   useEffect(() => {
     if (amount && rate) {
@@ -42,13 +47,6 @@ const Swapper = () => {
       setEquivalent("0");
     }
   }, [amount, rate]);
-
-  const updateRate = () => {
-    const fromPrice = tokenPrices[fromToken];
-    const toPrice = tokenPrices[toToken];
-    const newRate = toPrice / fromPrice;
-    setRate(newRate);
-  };
 
   const numberRegex = /^[0-9]*[.,]?[0-9]*$/;
 
@@ -64,8 +62,8 @@ const Swapper = () => {
         const swappedAmount = parseFloat(amount) * rate;
         console.log(
           `Swapped ${amount} ${fromToken} for ${swappedAmount.toFixed(
-            6,
-          )} ${toToken}`,
+            6
+          )} ${toToken}`
         );
         setAmount("");
         setEquivalent("0");
