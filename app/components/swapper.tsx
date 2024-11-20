@@ -22,11 +22,16 @@ const Swapper = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [rate, setRate] = useState(0);
-  const [balance, setBalance] = useState("100");
-
   const { address } = useAccount();
 
   useEffect(() => {
+    const updateRate = () => {
+      const fromPrice = tokenPrices[fromToken];
+      const toPrice = tokenPrices[toToken];
+      const newRate = toPrice / fromPrice;
+      setRate(newRate);
+    };
+
     updateRate();
   }, [fromToken, toToken]);
 
@@ -43,13 +48,6 @@ const Swapper = () => {
     }
   }, [amount, rate]);
 
-  const updateRate = () => {
-    const fromPrice = tokenPrices[fromToken];
-    const toPrice = tokenPrices[toToken];
-    const newRate = toPrice / fromPrice;
-    setRate(newRate);
-  };
-
   const numberRegex = /^[0-9]*[.,]?[0-9]*$/;
 
   const handleSwap = async () => {
@@ -64,8 +62,8 @@ const Swapper = () => {
         const swappedAmount = parseFloat(amount) * rate;
         console.log(
           `Swapped ${amount} ${fromToken} for ${swappedAmount.toFixed(
-            6,
-          )} ${toToken}`,
+            6
+          )} ${toToken}`
         );
         setAmount("");
         setEquivalent("0");
@@ -154,7 +152,6 @@ const Swapper = () => {
                 <CustomSelect
                   selectedToken={toToken}
                   onTokenSelect={setToToken}
-                  setAmount={setAmount}
                   from={false}
                 />
               </div>

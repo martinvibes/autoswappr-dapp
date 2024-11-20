@@ -9,7 +9,6 @@ interface ModalProps {
   from: boolean;
   handleClose: () => void;
   onTokenSelect: (token: Token) => void;
-  setAmount?: (amount: string) => void;
 }
 
 const ModalHeader = ({
@@ -81,10 +80,6 @@ const Tokens = ({
   onTokenSelect: (token: Token) => void;
   tokens: Token[];
 }) => {
-  const [tobi, searchTobi] = useState(
-    Object.keys(tokenAddresses) as Array<Token>,
-  );
-  const tokun = Object.keys(tokenAddresses) as Array<Token>;
   return (
     <div>
       <p className="mb-4">Tokens</p>
@@ -274,17 +269,15 @@ const AmountInput = ({
         To Token
         Amount | Percentage
 */
-export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
+export function SwapTo({ handleClose, onTokenSelect }: ModalProps) {
   const [amountField, setAmountField] = useState("");
   const [percentField, setPercent] = useState<PercentageLabel | "">("");
   const [tokenField, setTokenField] = useState<"USDT" | "USDC" | "">("");
-  const [disabled, setDisabled] = useState(
-    tokenField !== "" && (percentField !== "" || amountField !== ""),
-  );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleFields = () => {
     if (tokenField != "" && (percentField != "" || amountField != "")) {
-      setDisabled(!disabled);
+      setIsLoading(true);
       onTokenSelect(tokenField);
       handleClose();
     }
@@ -304,9 +297,13 @@ export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
       <hr className="h-[1px] border border-[#1E1E1E] w-full bg-[#1E1E1E] border-solid rounded" />
       <TokenFieldSet setTokenField={setTokenField} />
       <button
-        disabled={disabled}
+        disabled={
+          (!tokenField.length &&
+            (!percentField.length || !amountField.length)) ||
+          isLoading
+        }
         onClick={handleFields}
-        className={`w-full py-4 text-center rounded-full border-none font-semibold
+        className={`w-full py-4 text-center disabled:bg-opacity-85 disabled:cursor-not-allowed rounded-full border-none font-semibold
           bg-[#2BB2FF] cursor-pointer`}
       >
         Done
@@ -318,9 +315,9 @@ export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
 /**
     Swap From Modal
 */
-export function SwapFrom({ handleClose, onTokenSelect, from }: ModalProps) {
+export function SwapFrom({ handleClose, onTokenSelect }: ModalProps) {
   const [tokens, setTokens] = useState<Token[]>(
-    Object.keys(tokenAddresses) as Array<Token>,
+    Object.keys(tokenAddresses) as Array<Token>
   );
 
   const searchTokens = (search: Token) => {
