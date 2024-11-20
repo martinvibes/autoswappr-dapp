@@ -9,7 +9,6 @@ interface ModalProps {
   from: boolean;
   handleClose: () => void;
   onTokenSelect: (token: Token) => void;
-  setAmount?: (amount: string) => void;
 }
 
 const ModalHeader = ({
@@ -270,7 +269,7 @@ const AmountInput = ({
         To Token
         Amount | Percentage
 */
-export function SwapTo({ handleClose, onTokenSelect, setAmount }: ModalProps) {
+export function SwapTo({ handleClose, onTokenSelect }: ModalProps) {
   const [amountField, setAmountField] = useState("");
   const [percentField, setPercent] = useState<PercentageLabel | "">("");
   const [tokenField, setTokenField] = useState<"USDT" | "USDC" | "">("");

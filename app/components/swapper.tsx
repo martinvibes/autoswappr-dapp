@@ -24,16 +24,16 @@ const Swapper = () => {
   const [rate, setRate] = useState(0);
   const { address } = useAccount();
 
-  const updateRate = () => {
-    const fromPrice = tokenPrices[fromToken];
-    const toPrice = tokenPrices[toToken];
-    const newRate = toPrice / fromPrice;
-    setRate(newRate);
-  };
-
   useEffect(() => {
+    const updateRate = () => {
+      const fromPrice = tokenPrices[fromToken];
+      const toPrice = tokenPrices[toToken];
+      const newRate = toPrice / fromPrice;
+      setRate(newRate);
+    };
+
     updateRate();
-  }, [updateRate, fromToken, toToken]);
+  }, [fromToken, toToken]);
 
   useEffect(() => {
     if (amount && rate) {
@@ -152,7 +152,6 @@ const Swapper = () => {
                 <CustomSelect
                   selectedToken={toToken}
                   onTokenSelect={setToToken}
-                  setAmount={setAmount}
                   from={false}
                 />
               </div>

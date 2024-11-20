@@ -8,9 +8,8 @@ import { useState } from "react";
 export const CustomSelect: React.FC<{
   selectedToken: Token;
   onTokenSelect: (token: Token) => void;
-  setAmount?: (amount: string) => void;
   from: boolean;
-}> = ({ selectedToken, onTokenSelect, setAmount, from }) => {
+}> = ({ selectedToken, onTokenSelect, from }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -45,7 +44,6 @@ export const CustomSelect: React.FC<{
               <SwapTo
                 handleClose={() => setIsOpen(!isOpen)}
                 onTokenSelect={onTokenSelect}
-                setAmount={setAmount}
                 from={false}
               />
             )}
