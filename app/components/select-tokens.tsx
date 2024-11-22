@@ -1,8 +1,8 @@
 import React from "react";
 import { Open_Sans } from "next/font/google";
-import snlogo from "../../assets/starknet-logo.png";
-import btc from "../../assets/btc.png";
-import eth from "../../assets/ethlogo.png";
+import btc from "../../public/coin-logos/btc-logo.png"
+import eth from "../../public/coin-logos/eth-logo.png"
+import strk from "../../public/coin-logos/strk-logo.png"
 import alt from "../../assets/alt.png";
 
 import Image from "next/image";
@@ -17,7 +17,7 @@ type Coin = {
 
 const Selecttokens = () => {
   const coins: Coin[] = [
-    { key: "bitcoin", imgLink: snlogo, coinName: "Bitcoin", coinSymbol: "BTC" },
+    { key: "bitcoin", imgLink: strk, coinName: "Bitcoin", coinSymbol: "BTC" },
     { key: "ethereum", imgLink: eth, coinName: "Ethereum", coinSymbol: "ETH" },
     { key: "dogecoin", imgLink: eth, coinName: "Dogecoin", coinSymbol: "DOGE" },
     { key: "litecoin", imgLink: btc, coinName: "Litecoin", coinSymbol: "LTC" },
