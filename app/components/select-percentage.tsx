@@ -21,7 +21,7 @@ const SelectPercentage = () => {
   };
 
   return (
-    <div className="py-16 h-auto bg-[#08001F] flex flex-col items-center justify-center mx-auto w-full px-4">
+    <div className="py-16 h-auto flex flex-col items-center justify-center mx-auto w-full px-4">
       <div className="w-full max-w-[800px] px-4 sm:px-8 py-12 border-[2px] border-[#170F2E] flex flex-col items-center justify-center space-y-4 rounded-xl">
         <div className="flex flex-col items-center justify-center relative w-full sm:max-w-[90%]">
           <div className="text-center w-fit flex-none font-[600] text-[20px] sm:text-[24px] px-4">
