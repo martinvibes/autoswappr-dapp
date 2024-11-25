@@ -21,6 +21,14 @@ const SelectPercentage = () => {
     }
   };
 
+  const handleBaseTokenChange = (value: string) => {
+    if (value == baseToken) {
+      setBaseToken("");
+    } else {
+      setBaseToken(value);
+    }
+  };
+
   return (
     <div className="py-16 h-auto flex flex-col items-center justify-center mx-auto w-full px-4">
       <div className="w-full max-w-[800px] px-4 sm:px-8 py-12 border-[2px] border-[#170F2E] flex flex-col items-center justify-center space-y-4 rounded-xl">
@@ -29,7 +37,7 @@ const SelectPercentage = () => {
             Select token(s) to auto-swap from
           </div>
           <div className="absolute right-0 w-4 h-full flex-none flex items-center justify-center mx-auto">
-          <X className="cursor-pointer" />
+            <X className="cursor-pointer" />
           </div>
         </div>
         <div className="w-full py-6 px-4 max-w-[620px] text-[14px] sm:text-[16px] leading-[22px] text-[#A199B8] text-center">
@@ -45,7 +53,11 @@ const SelectPercentage = () => {
               placeholder="Input how much you want to auto-swap"
             />
             <div className="w-fit h-full flex-none pr-4">
-              <img src="/pencil-edit.svg" alt="pencil edit" className="w-full h-auto" />
+              <img
+                src="/pencil-edit.svg"
+                alt="pencil edit"
+                className="w-full h-auto"
+              />
             </div>
           </div>
 
@@ -74,7 +86,7 @@ const SelectPercentage = () => {
                   />
                   <label
                     htmlFor={id}
-                    className={`bg-[#100827] text-[#F9F9F9] text-[14px] font-[600] text-center w-full hover:cursor-pointer py-4 rounded-full border ${percent == value ? "border-blue-500" : "border-transparent"} peer-checked:border-blue-500`}
+                    className={`bg-[#100827] text-[#F9F9F9] text-[14px] font-[600] text-center w-full hover:cursor-pointer py-4 rounded-full select-none border ${percent == value ? "border-blue-500" : "border-transparent"} peer-checked:border-blue-500`}
                   >
                     {label}
                   </label>
@@ -96,8 +108,18 @@ const SelectPercentage = () => {
 
           <div className="w-full flex gap-8 sm:gap-16">
             {[
-              { logo: "/usdt-logo.png", label: "Usdt", value: "usdt", id: "usdt" },
-              { logo: "/usdc-logo.png", label: "Usdc", value: "usdc", id: "usdc" },
+              {
+                logo: "/usdt-logo.svg",
+                label: "Usdt",
+                value: "usdt",
+                id: "usdt",
+              },
+              {
+                logo: "/usdc-logo.svg",
+                label: "Usdc",
+                value: "usdc",
+                id: "usdc",
+              },
             ].map(({ logo, label, value, id }) => (
               <div
                 key={id}
@@ -109,11 +131,11 @@ const SelectPercentage = () => {
                   name="radio-group"
                   value={value}
                   className={`hidden`}
-                  onClick={() => setBaseToken(id)}
+                  onClick={() => handleBaseTokenChange(value)}
                 />
                 <label
                   htmlFor={id}
-                  className={`w-full relative flex flex-row space-x-2 items-center justify-start`}
+                  className={`w-full relative flex flex-row space-x-2 items-center justify-start cursor-pointer select-none`}
                 >
                   <img
                     src={logo}
