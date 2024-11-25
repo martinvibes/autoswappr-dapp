@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import ConnectWallet from "./connect-wallet";
 import Image from "next/image";
 import Logo from "@/public/autoswappr.png";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
+import menu from "@/public/menu-11.svg";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,10 +20,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full h-[94px] bg-[#000014CC] px-4 sm:px-5 md:px-[80px] z-20">
+    <nav className="fixed top-0 left-0 w-full h-[88px] bg-[#000014CC] px-4 sm:px-5 md:px-[80px] z-20">
       <div className="h-full max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center">
+        <div className="flex items-center cursor-pointer">
           <Image
             className="w-[100px] h-[44px] md:w-[124px] md:h-[54px]"
             src={Logo}
@@ -31,7 +32,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-6 md:absolute md:left-[300px]">
           {navLinks.map((link) => (
             <li key={link.title}>
               <a
@@ -55,7 +56,11 @@ const Navbar = () => {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? (
+            <X size={24} />
+          ) : (
+            <Image src={menu} alt="menu icon" width={24} height={24} />
+          )}
         </button>
 
         {/* Mobile Menu */}

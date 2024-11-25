@@ -1,7 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 // import Swapper from "./components/swapper";
-import bgImg from "../public/background1.svg";
 import eth from "../public/coin-logos/eth-logo.png";
 import strk from "../public/coin-logos/strk-logo.png";
 import btc from "../public/coin-logos/btc-logo.png";
@@ -14,23 +13,14 @@ import m_Img from "../public/M-logo.svg";
 import Image from "next/image";
 
 export default function Home() {
-  const [percentage, setPercentage] = useState("25%");
-  const handlePercentageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setPercentage(e.target.value);
-  };
-
+ 
   return (
-    <main className="min-h-screen">
+    <main className="">
       {/* Hero Section */}
-      <div className="relative flex flex-col items-center justify-center text-center pt-6 md:pt-[120px] bg-main-bg h-screen mt-0 bg-no-repeat bg-cover px-4">
-        <div
-          className="w-full absolute bg-contain bg-no-repeat bg-center"
-          style={{
-            backgroundImage: `url(${bgImg})`,
-          }}
-        />
-        <Image className="my-10 md:hidden" src={m_Img} alt="Token badge" />
-        <div className="flex flex-col items-center z-10">
+      <div className="min-h-screen relative flex flex-col items-center justify-center text-center pt-32 md:pt-[5px] bg-main-bg h-screen mt-0 bg-no-repeat bg-cover px-4">
+        <div className="w-full h-[138px] bg-main-bg bg-cover absolute top-0"></div>
+        <Image className="my-5 md:hidden" src={m_Img} alt="Token badge" />
+        <div className="flex flex-col items-center z-10 m-auto">
           <h1 className="text-2xl md:text-[28px] lg:text-[46px] font-semibold text-[#F7F7F7] max-w-[90%] md:max-w-[700px]">
             Your Tokens, Your Rules
           </h1>
@@ -44,6 +34,7 @@ export default function Home() {
             </span>
           </button>
         </div>
+        <div className="w-full h-[138px] bg-main-bg bg-cover absolute bottom-0 transform rotate-180"></div>
       </div>
 
       {/* Select Base Tokens Section */}
@@ -72,6 +63,12 @@ export default function Home() {
             />
             <p className="text-sm md:text-base">Tether</p>
             <span className="text-[10px] text-gray-600">USDT</span>
+            <Image
+              src="checkmark-circle-02.svg"
+              alt="check"
+              width="15"
+              height="15"
+            />
           </div>
           <div className="flex flex-col justify-between items-center">
             <Image
@@ -83,6 +80,12 @@ export default function Home() {
             />
             <p className="text-sm md:text-base">USD Coin</p>
             <span className="text-[10px] text-gray-600">USDC</span>
+            <Image
+              src="checkmark-circle-0.svg"
+              alt="check"
+              width="15"
+              height="15"
+            />
           </div>
         </div>
       </section>
@@ -107,11 +110,16 @@ export default function Home() {
         <div className="w-full border-[.5px] border-[#382E56] rounded-3xl p-4 md:px-4 md:py-8">
           <div className="flex flex-row items-center w-full p-3 rounded-full bg-[#100827]">
             <input
-              className="w-full rounded-full bg-transparent"
+              className="w-full rounded-full bg-transparent outline-none"
               type="text"
               placeholder="Search tokens..."
             />
-            <Image src="search-01.svg" alt="search icon" width="25" height="25" />
+            <Image
+              src="search-01.svg"
+              alt="search icon"
+              width="25"
+              height="25"
+            />
           </div>
           <div>
             <p className="my-5">Select tokens</p>
@@ -144,9 +152,11 @@ export default function Home() {
                       </span>
                     </span>
                   </span>
-                  <input
-                    className="rounded-full text-blue-600"
-                    type="checkbox"
+                  <Image
+                    src="checkmark-circle-02.svg"
+                    alt="check"
+                    width="15"
+                    height="15"
                   />
                 </button>
               ))}
@@ -173,25 +183,30 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="w-full md:w-[70%] border-[.5px] border-[#382E56] rounded-3xl p-4 md:px-4 md:py-8">
+        <div className="w-full md:w-[70%] border-[.5px] border-[#382E56] rounded-3xl p-3 md:px-4 md:py-8">
           <div className="flex flex-row items-center w-full p-3 rounded-full bg-[#100827]">
             <input
-              className="w-full rounded-full bg-transparent"
+              className="w-full rounded-full bg-transparent outline-none px-1"
               type="text"
               placeholder="Search tokens..."
             />
-            <Image src="search-01.svg" alt="serach icon" width="3" height="3" />
+            <Image
+              src="search-01.svg"
+              alt="serach icon"
+              width="20"
+              height="20"
+            />
           </div>
 
           <div className="mt-6">
-            <div className="w-full flex flex-row justify-between items-center my-4 md:my-10">
-              <div className="w-[45%] md:w-[40%] flex flex-row items-center justify-between">
-                <h3 className="text-sm md:text-base">From</h3>
-                <h3 className="text-sm md:text-base">To</h3>
+            <div className="w-full grid grid-cols-2 justify-between items-center my-4 md:my-10">
+              <div className="grid grid-cols-2 gap-2 items-center">
+                <h3 className="text-sm md:text-base text-center">From</h3>
+                <h3 className="text-sm md:text-base text-center">To</h3>
               </div>
-              <div className="w-[45%] md:w-[40%] flex flex-row items-center justify-between">
-                <h3 className="text-sm md:text-base">%</h3>
-                <h3 className="text-sm md:text-base">Auto-Swap</h3>
+              <div className="grid grid-cols-2 gap-2 items-center">
+                <h3 className="text-sm md:text-base text-center">%</h3>
+                <h3 className="text-sm md:text-base text-center">Auto-Swap</h3>
               </div>
             </div>
 
@@ -204,9 +219,9 @@ export default function Home() {
             ].map((pair, index) => (
               <div
                 key={index}
-                className="mb-5 w-full flex flex-row justify-between items-center"
+                className="mb-5 w-full grid grid-cols-2 justify-between items-center"
               >
-                <div className="w-[45%] md:w-[40%] flex flex-row items-center justify-between">
+                <div className="grid grid-cols-2 gap-2 justify-items-center">
                   <Image
                     src={pair.from}
                     alt="coin from"
@@ -222,17 +237,15 @@ export default function Home() {
                     className="w-6 h-6"
                   />
                 </div>
-                <div className="w-[45%] md:w-[40%] flex flex-row items-center justify-between">
-                  <select
-                    value={percentage}
-                    onChange={handlePercentageChange}
-                    className="p-2 bg-[#100827] rounded-3xl text-sm"
-                  >
-                    <option value="25%">25%</option>
-                    <option value="50%">50%</option>
-                    <option value="75%">75%</option>
-                    <option value="100%">100%</option>
-                  </select>
+                <div className="grid grid-cols-2 gap-2 justify-items-center">
+                  <div className="flex flex-row items-center gap-1">
+                    <Image
+                      src="percent1.svg"
+                      alt="arrow"
+                      width={55}
+                      height={55}
+                    />
+                  </div>
                   <Image
                     src={index < 2 ? toggle_off : toggle_on}
                     alt="toggle"
