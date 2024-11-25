@@ -1,6 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useAccount } from "@starknet-react/core";
+import React, { useState } from "react";
 
 /**
     Select percentage
@@ -10,9 +9,6 @@ const SelectPercentage = () => {
   const [baseToken, setBaseToken] = useState("");
   const [amount, setAmount] = useState("");
   const [percent, setPercent] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
-  const { address } = useAccount();
 
   const numberRegex = /^[0-9]*[.,]?[0-9]*$/;
 
@@ -20,6 +16,7 @@ const SelectPercentage = () => {
     const value = e.target.value;
     if (numberRegex.test(value)) {
       setAmount(value);
+      console.log(amount);
     }
   };
 
@@ -42,11 +39,12 @@ const SelectPercentage = () => {
           <div className="w-full rounded-full flex flex-row items-center justify-between space-x-2 bg-[#100827]">
             <input
               type="text"
+              onChange={handleAmountChange}
               className="placeholder:text-[#433B5A] text-[#F9F9F9] bg-transparent outline-none focus:outline-none w-full p-4"
               placeholder="Input how much you want to auto-swap"
             />
             <div className="w-fit h-full flex-none pr-4">
-              <img src="/pencil-edit.png" className="w-full h-auto" />
+              <img src="/pencil-edit.png" alt="edit" className="w-full h-auto" />
             </div>
           </div>
 
