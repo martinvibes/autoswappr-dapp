@@ -4,13 +4,14 @@ import btc from "../../public/coin-logos/btc-logo.png"
 import eth from "../../public/coin-logos/eth-logo.png"
 import strk from "../../public/coin-logos/strk-logo.png"
 import alt from "../../assets/alt.png";
+import type { StaticImageData } from 'next/image';
 
 import Image from "next/image";
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 type Coin = {
   key: string;
-  imgLink: any;
+  imgLink: StaticImageData | string;
   coinName: string;
   coinSymbol: string;
 };
