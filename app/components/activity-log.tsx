@@ -1,4 +1,3 @@
-import Navbar from "../components/navbar";
 import btc from "../../public/coin-logos/btc-logo.png"
 import eth from "../../public/coin-logos/eth-logo.png"
 import sol from "../../public/coin-logos/sol-logo.png"
