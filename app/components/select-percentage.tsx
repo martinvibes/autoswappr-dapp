@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { X } from "lucide-react";
 
 /**
     Select percentage
@@ -28,7 +29,7 @@ const SelectPercentage = () => {
             Select token(s) to auto-swap from
           </div>
           <div className="absolute right-0 w-4 h-full flex-none flex items-center justify-center mx-auto">
-            <img src="/x.png" alt="x" className="w-full h-auto" />
+          <X className="cursor-pointer" />
           </div>
         </div>
         <div className="w-full py-6 px-4 max-w-[620px] text-[14px] sm:text-[16px] leading-[22px] text-[#A199B8] text-center">
@@ -44,7 +45,7 @@ const SelectPercentage = () => {
               placeholder="Input how much you want to auto-swap"
             />
             <div className="w-fit h-full flex-none pr-4">
-              <img src="/pencil-edit.png" alt="edit" className="w-full h-auto" />
+              <img src="/pencil-edit.svg" alt="pencil edit" className="w-full h-auto" />
             </div>
           </div>
 
@@ -73,7 +74,7 @@ const SelectPercentage = () => {
                   />
                   <label
                     htmlFor={id}
-                    className={`bg-[#100827] text-[#F9F9F9] text-[14px] font-[600] text-center w-full py-4 rounded-full border ${percent == value ? "border-blue-500" : "border-transparent"} peer-checked:border-blue-500`}
+                    className={`bg-[#100827] text-[#F9F9F9] text-[14px] font-[600] text-center w-full hover:cursor-pointer py-4 rounded-full border ${percent == value ? "border-blue-500" : "border-transparent"} peer-checked:border-blue-500`}
                   >
                     {label}
                   </label>
@@ -84,7 +85,7 @@ const SelectPercentage = () => {
 
           <div className="w-full flex flex-row items-center justify-start space-x-2">
             <img
-              src="/time-half-pass.png"
+              src="/time-half-pass.svg"
               alt="time half pass"
               className="w-auto h-auto"
             />
@@ -129,7 +130,7 @@ const SelectPercentage = () => {
                   </div>
                   {baseToken == value ? (
                     <img
-                      src="/blue-checkmark-circle.png"
+                      src="/blue-checkmark-circle.svg"
                       alt="check"
                       className="w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] absolute right-0"
                     />
