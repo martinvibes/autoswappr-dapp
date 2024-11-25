@@ -10,6 +10,7 @@ export default {
     extend: {
       backgroundImage: {
         "main-bg": "url('/main-background.png')",
+        "primaryText": "#E7ECF0"
       },
     },
   },
