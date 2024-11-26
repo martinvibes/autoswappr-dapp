@@ -41,7 +41,7 @@ const Selecttokens = () => {
   ];
 
   return (
-    <div className="w-full bg-main-bg items-center justify-center flex">
+    <div className=" bg-main-bg w-full h-[100vh] bg-cover bg-no-repeat pt-[120px] items-center justify-center flex">
       <div
         className={`shadow-lg rounded w-[800px] ${openSans.className}  h-[660px] flex justify-center flex-col items-center`}
       >
