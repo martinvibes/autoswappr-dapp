@@ -43,7 +43,7 @@ export function Modal({ children, isOpen, handleClose }: ModalProps) {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="border border-[#1E1E1E] rounded-3xl bg-[#0F0F0F]"
+            className="border border-[#170F2E] rounded-3xl bg-[#08001F]"
           >
             {children}
           </div>

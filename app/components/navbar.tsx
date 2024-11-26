@@ -13,13 +13,13 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center space-x-4 justify-between">
-          <Link href="#" className="text-primaryText text-[1em] hover:text-[#49ABD2]">
+          <Link href="/" className="text-primaryText text-[1em] hover:text-[#49ABD2]">
             Home
           </Link>
           <Link href="#" className="text-primaryText text-[1em] hover:text-[#49ABD2]">
             Activity
           </Link>
-          <Link href="#" className="text-primaryText text-[1em] hover:text-[#49ABD2]">
+          <Link href="/dex" className="text-primaryText text-[1em] hover:text-[#49ABD2]">
             Dex
           </Link>
         </div>

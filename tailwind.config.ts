@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "main-bg": "url('/main-background.png')",
-        "primaryText": "#E7ECF0"
+        "main-bg": "url('/background.png')",
+        primaryText: "#E7ECF0",
       },
     },
   },

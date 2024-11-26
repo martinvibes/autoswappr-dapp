@@ -34,7 +34,7 @@ const SearchToken = ({
   searchTokens: (e: Token) => void;
 }) => (
   <div
-    className={`flex w-full h-12 bg-[#141414] py-3 px-4 justify-between items-center
+    className={`flex w-full h-12 bg-[#100827] py-3 px-4 justify-between items-center
     rounded-[900px] focus-within:outline-1`}
   >
     <label htmlFor="search-from" className="sr-only"></label>
@@ -43,7 +43,7 @@ const SearchToken = ({
       id="search-from"
       placeholder="Search tokens..."
       onChange={(e) => searchTokens(e.target.value as Token)}
-      className="grow-[2] border-none focus:outline-none bg-[#141414] text-base"
+      className="grow-[2] border-none focus:outline-none bg-[#100827] text-base"
     />
     <Search />
   </div>
@@ -159,7 +159,7 @@ const PercentFieldSet = ({
             />
             <label
               htmlFor={id}
-              className={`bg-[#141414] text-sm font-semibold uppercase w-[4.5rem]
+              className={`bg-[#170F2E] text-sm font-semibold uppercase w-[4.5rem]
                 lg:w-24 h-10 text-center py-2 px-4 rounded-full shadow-sm
                 peer-checked:bg-[#2BB2FF] peer-checked:text-white peer-checked:border-blue-500
                 ${disabled ? "cursor-not-allowed" : "cursor-pointer"}`}
@@ -241,8 +241,8 @@ const AmountInput = ({
   };
   return (
     <div
-      className={`flex w-full h-12 bg-[#141414] py-3 px-4 justify-between items-center
-  rounded-[900px] focus-within:outline-1 focus-within:bg-[#141414]`}
+      className={`flex w-full h-12 bg-[#170F2E] py-3 px-4 justify-between items-center
+  rounded-[900px] focus-within:outline-1 focus-within:bg-[#170F2E]`}
     >
       <label htmlFor="input-amount" className="sr-only">
         Amount
@@ -255,7 +255,7 @@ const AmountInput = ({
         placeholder="Input how much you want to swap"
         disabled={disabled}
         className={`grow-[2] border-none focus:outline-none focus:text-[#F9F9F9]
-          bg-[#141414] text-base focus:bg-[#141414]
+          bg-[#170F2E] text-base focus:bg-[#170F2E]
           ${disabled ? "cursor-not-allowed" : "cursor-text"}`}
       />
       <PenLine />
