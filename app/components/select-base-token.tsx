@@ -13,7 +13,7 @@ export function SelectBaseToken() {
 
   return (
     <div className="flex justify-center items-center mt-10 w-full px-4 bg-gradient-to-b from-[#08001F] to-[#040010]">
-      <div className="flex relative justify-center items-center rounded-3xl border border-[#8063d4] text-center w-full max-w-[50rem] flex-col bg-[#08001F]/90 backdrop-blur-sm p-6 mx-4">
+      <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col bg-[#08001F]/90 backdrop-blur-sm p-6 mx-4">
         
         {/* Header */}
         <div className="flex justify-center relative w-full mb-6">
