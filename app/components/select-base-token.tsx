@@ -13,7 +13,7 @@ export function SelectBaseToken() {
 
   return (
     <div className="flex justify-center items-center my-2">
-      <div className="flex relative justify-center items-center rounded text-center w-[50rem] flex-col bg-[#08001F] p-6">
+      <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-[50rem] flex-col bg-[#08001F] p-6">
        
         <div className="flex justify-center text-2xl items-center my-8">
           <h1>Select a base token to auto-swap to</h1>
@@ -79,7 +79,7 @@ export function SelectBaseToken() {
           </div>
         </div>
 
-        <button className="w-full py-[19px] my-[30px] bg-[#100827] rounded">
+        <button className="w-full py-[19px] my-[30px] bg-[#100827] rounded-full">
           Next
         </button>
       </div>
