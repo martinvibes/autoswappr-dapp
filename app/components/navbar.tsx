@@ -22,29 +22,30 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full h-[88px] bg-[#000014CC] px-4 sm:px-5 md:px-[80px] z-20">
       <div className="h-full max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center cursor-pointer">
-          <Image
-            className="w-[100px] h-[44px] md:w-[124px] md:h-[54px]"
-            src={Logo}
-            alt="Logo"
-          />
+        <div className="flex items-center gap-x-[80px]">
+          {/* Logo */}
+          <div className="flex items-center cursor-pointer">
+            <Image
+              className="w-[100px] h-[44px] md:w-[124px] md:h-[54px]"
+              src={Logo}
+              alt="Logo"
+            />
+          </div>
+
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex items-center gap-6 md:left-[300px]">
+            {navLinks.map((link) => (
+              <li key={link.title}>
+                <a
+                  href={link.href}
+                  className="text-base text-[#e7ecf0] hover:text-white transition-colors"
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-6 md:absolute md:left-[300px]">
-          {navLinks.map((link) => (
-            <li key={link.title}>
-              <a
-                href={link.href}
-                className="text-base text-[#e7ecf0] hover:text-white transition-colors"
-              >
-                {link.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-
         {/* Connect Wallet Button */}
         <div className="hidden md:flex items-center">
           <ConnectWallet />
