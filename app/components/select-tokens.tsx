@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Open_Sans } from "next/font/google";
 import btc from "../../public/coin-logos/btc-logo.png";
@@ -44,15 +44,16 @@ const Selecttokens = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCoins, setSelectedCoins] = useState<string[]>([]);
 
-  const filteredCoins = coins.filter(coin => 
-    coin.coinName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    coin.coinSymbol.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredCoins = coins.filter(
+    (coin) =>
+      coin.coinName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      coin.coinSymbol.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const toggleCoinSelection = (coinKey: string) => {
-    setSelectedCoins(prev => 
-      prev.includes(coinKey) 
-        ? prev.filter(key => key !== coinKey)
+    setSelectedCoins((prev) =>
+      prev.includes(coinKey)
+        ? prev.filter((key) => key !== coinKey)
         : [...prev, coinKey]
     );
   };
@@ -103,25 +104,27 @@ const Selecttokens = () => {
                   key={coin.key}
                   onClick={() => toggleCoinSelection(coin.key)}
                   className={`sm:w-[224px] w-[150px] h-[48px] rounded-full border-[#170F2E] py-1 px-2 grid grid-cols-[24px_auto_30px] sm:grid-cols-[35px_auto_30px] cursor-pointer 
-                    ${selectedCoins.includes(coin.key) ? 'bg-[#0F96E3]/10' : ''}`}
+                    ${selectedCoins.includes(coin.key) ? "bg-[#0F96E3]/10" : ""}`}
                 >
                   <div className="items-center justify-center flex">
                     <Image
                       src={coin.imgLink}
                       alt={coin.coinName}
-                      width={24} 
+                      width={24}
                       height={24}
                       className="sm:w-8 sm:h-8 "
                     />
                   </div>
                   <div className="flex pl-2 flex-col items-start justify-between text-center">
-                    <p className="text-[14px] sm:text-[16px] font-normal sm:font-semibold">{coin.coinName}</p>
+                    <p className="text-[14px] sm:text-[16px] font-normal sm:font-semibold">
+                      {coin.coinName}
+                    </p>
                     <p className="capitalize text-[12px] sm:text-[13px] text-[#433B5A]">
                       {coin.coinSymbol}
                     </p>
                   </div>
                   <div className="items-center justify-center flex">
-                    {selectedCoins.includes(coin.key) && <CheckIcon />}
+                    {selectedCoins.includes(coin.key) ? <CheckIcon /> : <UncheckedIcon /> }
                   </div>
                 </div>
               ))}
@@ -131,7 +134,7 @@ const Selecttokens = () => {
         <br />
         <hr className="border-[#100827] w-[704px]" />
         <br />
-        <button 
+        <button
           className="w-[318px] sm:w-[704px] text-white bg-[#100827] h-[60px] rounded-[32px]"
           disabled={selectedCoins.length === 0}
         >
@@ -234,6 +237,29 @@ export const CheckIcon = () => {
         stroke="#F9F9F9"
         strokeLinecap="round"
         strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const UncheckedIcon = () => {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
+        stroke="#433B5A"
+      />
+      <path
+        d="M8 12.5L10.5 15L16 9"
+        stroke="#433B5A"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   );
