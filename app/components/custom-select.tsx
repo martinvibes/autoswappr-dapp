@@ -13,7 +13,7 @@ export const CustomSelect: React.FC<{
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative h-[10.45px] w-[20%] md:h-[40px] md:w-[150px]">
+    <div className="relative h-[10.45px] w-[40%] md-w[20%] md:h-[40px] md:w-[150px]">
       <div
         className="bg-transparent text-[#F7F7F7] border-[1px] border-[#08001F] font-semibold flex h-full w-full cursor-pointer items-center justify-between gap-2 rounded-sm px-2 py-[6px] text-[10px] md:gap-2 md:rounded-full md:text-[16px]"
         onClick={() => setIsOpen(!isOpen)}

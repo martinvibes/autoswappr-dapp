@@ -84,10 +84,10 @@ const Swapper = () => {
 
   return (
     <div className="flex w-full cursor-pointer flex-col items-center text-[#F7F7F7] rounded-[48px] p-[18px] md:w-[800px] m:h-[600px] md:p-[2rem] bg-[#08001F] border-[1px] border-[#170F2E]">
-      <form className="m-0 md:w-[480px]">
+      <form className="m-0 w-full md:w-[480px]">
         <div className="relative flex w-full flex-col items-center">
           <div className="mb-4 flex w-full flex-col">
-            <div className="rounded-[24px] px-[10px] py-[10px] md:px-[24px] md:py-[20px] border border-[#170F2E] bg-[#08001F]">
+            <div className="rounded-[24px] px-[10px] py-[10px] md:px-[24px] md:py-[20px] border border-[#170F2E] bg-[#08001F] ">
               <h3 className="mb-2 text-[9.97px] md:text-[16px] text-left text-[#F7F7F7] text-base">
                 From
               </h3>
