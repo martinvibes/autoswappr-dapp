@@ -1,4 +1,3 @@
-import Swapper from "./components/swapper";
 
 export default function Home() {
   return (
