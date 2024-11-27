@@ -12,14 +12,16 @@ export function SelectBaseToken() {
   const [active, setActive] = useState<"USDT" | "USDC">("USDT");
 
   return (
-    <div className="flex justify-center items-center mt-10 h-screen w-full px-4">
+    <div className="flex relative justify-center items-center mt-10 h-screen w-full px-4">
+      <div className="w-full h-[138px] bg-main-bg bg-cover absolute top-0"></div>
+
       <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col p-6 mx-4">
         
-        <div className="flex justify-center relative w-full mt-4 mb-6">
-          <h1 className="text-lg sm:text-xl flex-wrap font-medium text-white">
+        <div className="flex justify-center text-center items-center relative w-full mt-4 mb-6">
+          <h1 className="text-[20px] sm:text-[24px] flex-wrap font-medium text-white">
             Select a base token to auto-swap to
           </h1>
-          <button className="absolute right-0 top-1/2 -translate-y-1/2">
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:block">
             <Image
               className="cursor-pointer w-6 h-6"
               src={cancel}
@@ -27,7 +29,7 @@ export function SelectBaseToken() {
               width={24}
               height={24}
             />
-          </button>
+          </div>
         </div>
 
         <p className="text-sm sm:text-base text-[#A199B8] mb-8 max-w-md text-center">
@@ -91,6 +93,7 @@ export function SelectBaseToken() {
           Next
         </button>
       </div>
+      <div className="w-full h-[138px] bg-main-bg bg-cover absolute bottom-0 transform rotate-180"></div>
     </div>
   );
 }
