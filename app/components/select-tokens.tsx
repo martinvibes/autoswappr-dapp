@@ -7,6 +7,12 @@ import strk from "../../public/coin-logos/strk-logo.png";
 import alt from "../../assets/alt.png";
 import type { StaticImageData } from "next/image";
 
+import { UncheckedIcon } from "@/svgs/UncheckedIcon";
+import { CheckIcon } from "@/svgs/CheckIcon";
+import { TimeIcon } from "@/svgs/TimeIcon";
+import { SearchIcon } from "@/svgs/SearchIcon";
+import { CloseButton } from "@/svgs/CloseButton";
+
 import Image from "next/image";
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -144,124 +150,7 @@ const Selecttokens = () => {
     </div>
   );
 };
-export const CloseButton = () => {
-  return (
-    <svg
-      width="20"
-      height="21"
-      viewBox="0 0 20 21"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M15.8337 4.6665L4.16699 16.3332M4.16699 4.6665L15.8337 16.3332"
-        stroke="#F9F9F9"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
 
-export const SearchIcon = () => {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M14.5835 14.5833L18.3335 18.3333"
-        stroke="#BABABA"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M16.6665 9.16675C16.6665 5.02461 13.3087 1.66675 9.1665 1.66675C5.02437 1.66675 1.6665 5.02461 1.6665 9.16675C1.6665 13.3089 5.02437 16.6667 9.1665 16.6667C13.3087 16.6667 16.6665 13.3089 16.6665 9.16675Z"
-        stroke="#BABABA"
-        strokeWidth="1.25"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
 
-export const TimeIcon = () => {
-  return (
-    <svg
-      width="16"
-      height="17"
-      viewBox="0 0 16 17"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M5.84641 2.16675C5.66503 2.2316 5.48721 2.3037 5.31335 2.38268M3.61684 3.47719C3.46584 3.6096 3.32087 3.74845 3.18239 3.89327M2.02135 5.54325C1.89749 5.79211 1.78892 6.04956 1.69682 6.31443M1.34422 8.09435C1.32941 8.35395 1.32997 8.61861 1.34573 8.87828M1.71246 10.6773C1.80114 10.9265 1.90444 11.1691 2.02135 11.4039M3.1274 12.9957C3.29021 13.1701 3.46231 13.336 3.64293 13.4928M5.18439 14.5043C5.44731 14.6303 5.71967 14.7405 6.00016 14.8334"
-        stroke="#433B5A"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M8 15.1666C11.6819 15.1666 14.6667 12.1818 14.6667 8.49992C14.6667 4.81802 11.6819 1.83325 8 1.83325"
-        stroke="#433B5A"
-        strokeLinecap="round"
-      />
-      <path
-        d="M8 9.5C8.55227 9.5 9 9.05227 9 8.5C9 7.94773 8.55227 7.5 8 7.5M8 9.5C7.44773 9.5 7 9.05227 7 8.5C7 7.94773 7.44773 7.5 8 7.5M8 9.5V11.1667M8 7.5V4.5"
-        stroke="#433B5A"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-};
 
-export const CheckIcon = () => {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
-        fill="#0F96E3"
-      />
-      <path
-        d="M8 12.5L10.5 15L16 9"
-        stroke="#F9F9F9"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
-
-export const UncheckedIcon = () => {
-  return (
-    <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12Z"
-        stroke="#433B5A"
-      />
-      <path
-        d="M8 12.5L10.5 15L16 9"
-        stroke="#433B5A"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  );
-};
 export default Selecttokens;
