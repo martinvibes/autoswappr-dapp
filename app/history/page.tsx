@@ -168,7 +168,7 @@ export default function DexHistory(){
            <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-28 md:mt-0 md:pt-0 pb-10 mx-auto leading-[19.7px]">
             <h1 className="text-center capitalize pb-0 md:pb-8 text-2xl text-main-white font-semibold">history log</h1>
             <div className="hidden sm:block w-[95%] md:w-[80%] lg:w-[60%] max-w-[800px] overflow-auto max-h-[400px] mx-auto">
-            <div className="grid grid-cols-4 capitalize font-normal text-sm w-full border-b-[#170F2E] border-b pb-3 place-content-end">
+            <div className="flex justify-between capitalize font-normal text-sm w-full border-b-[#170F2E] border-b pb-3 place-content-end">
                 <h3>from</h3>
                 <h3>to</h3>
                 <h3>percentage</h3>
@@ -189,12 +189,12 @@ export default function DexHistory(){
                         </div>
                        </div>
                     </div>
-                    <div className="uppercase text-main-white">
+                    <div className="uppercase text-main-white place-self-centerfix">
                         <h2 className="text-base">{data.to.coinFromAmount} {data.to.coinFrom}</h2>
                         <h3 className="text-dark-blue text-sm">{data.to.coinToAmount} {data.to.coinTo}</h3>
                     </div>
-                    <div className="bg-[#100827] rounded-2xl w-fit h-fit place-items-center px-4 py-1">{data.percentage}%</div>
-                    <div className="uppercase text-main-white">
+                    <div className="bg-[#100827] rounded-2xl w-fit h-fit place-self-center  px-4 py-1">{data.percentage}%</div>
+                    <div className="uppercase text-main-white place-self-end">
                         <h2 className="text-base">{data.date.day}</h2>
                         <h3 className="text-dark-blue text-sm">{data.date.time}</h3>
                     </div>
