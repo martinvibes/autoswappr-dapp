@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import { Open_Sans } from "next/font/google";
 import btc from "../../public/coin-logos/btc-logo.png";
 import eth from "../../public/coin-logos/eth-logo.png";
@@ -40,6 +41,22 @@ const Selecttokens = () => {
     },
   ];
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCoins, setSelectedCoins] = useState<string[]>([]);
+
+  const filteredCoins = coins.filter(coin => 
+    coin.coinName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    coin.coinSymbol.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const toggleCoinSelection = (coinKey: string) => {
+    setSelectedCoins(prev => 
+      prev.includes(coinKey) 
+        ? prev.filter(key => key !== coinKey)
+        : [...prev, coinKey]
+    );
+  };
+
   return (
     <div className=" w-full  pt-[180px] items-center justify-center flex">
       <div
@@ -68,6 +85,8 @@ const Selecttokens = () => {
               type="search"
               className="w-[600px] bg-[#100827] text-[14px] p-1 text-white border-none focus:outline-none focus:border-none focus:no-underline  "
               placeholder="Search tokens..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               required
             />
             <SearchIcon />
@@ -79,10 +98,12 @@ const Selecttokens = () => {
               <p>Selected tokens</p>
             </div>
             <div className="grid mt-4 grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-4 ">
-              {coins.map((coin) => (
+              {filteredCoins.map((coin) => (
                 <div
                   key={coin.key}
-                  className=" sm:w-[224px] w-[150px]  h-[48px] rounded-full border-[#170F2E] py-1 px-2 grid grid-cols-[24px_auto_30px] sm:grid-cols-[35px_auto_30px]"
+                  onClick={() => toggleCoinSelection(coin.key)}
+                  className={`sm:w-[224px] w-[150px] h-[48px] rounded-full border-[#170F2E] py-1 px-2 grid grid-cols-[24px_auto_30px] sm:grid-cols-[35px_auto_30px] cursor-pointer 
+                    ${selectedCoins.includes(coin.key) ? 'bg-[#0F96E3]/10' : ''}`}
                 >
                   <div className="items-center justify-center flex">
                     <Image
@@ -100,7 +121,7 @@ const Selecttokens = () => {
                     </p>
                   </div>
                   <div className="items-center justify-center flex">
-                    <CheckIcon />
+                    {selectedCoins.includes(coin.key) && <CheckIcon />}
                   </div>
                 </div>
               ))}
@@ -110,14 +131,16 @@ const Selecttokens = () => {
         <br />
         <hr className="border-[#100827] w-[704px]" />
         <br />
-        <button className="w-[318px] sm:w-[704px] text-white bg-[#100827] h-[60px] rounded-[32px]">
+        <button 
+          className="w-[318px] sm:w-[704px] text-white bg-[#100827] h-[60px] rounded-[32px]"
+          disabled={selectedCoins.length === 0}
+        >
           Next
         </button>
       </div>
     </div>
   );
 };
-
 export const CloseButton = () => {
   return (
     <svg
