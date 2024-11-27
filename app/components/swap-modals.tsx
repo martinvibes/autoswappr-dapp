@@ -309,7 +309,7 @@ export function SwapTo({ handleClose, onTokenSelect }: ModalProps) {
       className={`p-6 lg:p-12 flex flex-col gap-6 lg:gap-7 h-max-[40rem]
       w-[24rem] lg:w-[32rem] items-start no-scrollbar overflow-y-auto`}
     >
-      <ModalHeader handleClose={handleClose} from />
+      <ModalHeader handleClose={handleClose} from={false} />
       <SearchToken searchTokens={searchTokens} />
       <RecentToken onTokenSelect={onTokenSelect} handleClose={handleClose} />
       <hr className="h-[1px] border border-[#1E1E1E] w-full bg-[#1E1E1E] border-solid rounded" />
