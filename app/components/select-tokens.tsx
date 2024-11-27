@@ -1,11 +1,14 @@
 "use client";
-import React, { useState } from "react";
-import { Open_Sans } from "next/font/google";
-import btc from "../../public/coin-logos/btc-logo.png";
-import eth from "../../public/coin-logos/eth-logo.png";
-import strk from "../../public/coin-logos/strk-logo.png";
-import alt from "../../assets/alt.png";
+
+import Image from "next/image";
 import type { StaticImageData } from "next/image";
+import { Open_Sans } from "next/font/google";
+
+import React, { useState } from "react";
+import btc from "../../public/BtcIcon.svg";
+import eth from "../../public/EthereumLogo.svg";
+import strk from "../../public/StarknetIcon.svg";
+import alt from "../../public/Blank.svg";
 
 import { UncheckedIcon } from "@/svgs/UncheckedIcon";
 import { CheckIcon } from "@/svgs/CheckIcon";
@@ -13,7 +16,6 @@ import { TimeIcon } from "@/svgs/TimeIcon";
 import { SearchIcon } from "@/svgs/SearchIcon";
 import { CloseButton } from "@/svgs/CloseButton";
 
-import Image from "next/image";
 const openSans = Open_Sans({ subsets: ["latin"] });
 
 type Coin = {
@@ -65,16 +67,16 @@ const Selecttokens = () => {
   };
 
   return (
-    <div className=" w-full  pt-[180px] items-center justify-center flex">
+    <div className=" w-full pt-[180px] overflow-x-hidden items-center justify-center flex">
       <div
-        className={`shadow-lg rounded w-[350px] sm:w-[800px] ${openSans.className}  h-[660px] flex justify-center flex-col items-center`}
+        className={`shadow-lg rounded-3xl w-[350px] border-[#170F2E] border-2 sm:w-[800px] ${openSans.className}  h-[660px] flex justify-center flex-col items-center`}
       >
         <div className=" w-[80%] flex items-center justify-between">
           <p className="none sm:block"></p>
           <p className="font-[600]  text-center sm:text-left text-[20px] sm:text-[24px] ">
             Select token(s) to auto-swap from
           </p>
-          <div className="none sm:block">
+          <div className="hidden md:block">
             <CloseButton />
           </div>
         </div>
@@ -130,7 +132,11 @@ const Selecttokens = () => {
                     </p>
                   </div>
                   <div className="items-center justify-center flex">
-                    {selectedCoins.includes(coin.key) ? <CheckIcon /> : <UncheckedIcon /> }
+                    {selectedCoins.includes(coin.key) ? (
+                      <CheckIcon />
+                    ) : (
+                      <UncheckedIcon />
+                    )}
                   </div>
                 </div>
               ))}
@@ -150,7 +156,5 @@ const Selecttokens = () => {
     </div>
   );
 };
-
-
 
 export default Selecttokens;
