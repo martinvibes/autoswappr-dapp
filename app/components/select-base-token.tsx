@@ -12,10 +12,10 @@ export function SelectBaseToken() {
   const [active, setActive] = useState<"USDT" | "USDC">("USDT");
 
   return (
-    <div className="flex justify-center items-center mt-10 w-full px-4 bg-gradient-to-b from-[#08001F] to-[#040010]">
-      <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col bg-[#08001F]/90 backdrop-blur-sm p-6 mx-4">
+    <div className="flex justify-center items-center mt-10 h-screen w-full px-4">
+      <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col p-6 mx-4">
         
-        <div className="flex justify-center relative w-full mb-6">
+        <div className="flex justify-center relative w-full mt-4 mb-6">
           <h1 className="text-lg sm:text-xl flex-wrap font-medium text-white">
             Select a base token to auto-swap to
           </h1>
@@ -34,7 +34,7 @@ export function SelectBaseToken() {
           You can change the base token in the settings and you can toggle on/off auto-swapper for any token you&apos;ve selected.
         </p>
 
-        <div className="flex flex-row justify-center items-center gap-8 sm:gap-12 md:gap-20 w-full mb-8">
+        <div className="flex flex-row justify-center items-center gap-8 sm:gap-12 md:gap-20 w-full mt-4 mb-8">
 
           <div
             onClick={() => setActive("USDT")}
@@ -87,7 +87,7 @@ export function SelectBaseToken() {
           </div>
         </div>
 
-        <button className="w-full py-4 sm:py-5 bg-[#100827] rounded-full text-white font-medium hover:bg-[#1a0f35] transition-colors duration-200">
+        <button className="w-full py-4 sm:py-5 my-5 bg-[#100827] rounded-full text-white font-medium hover:bg-[#1a0f35] transition-colors duration-200">
           Next
         </button>
       </div>
