@@ -189,7 +189,7 @@ export default function DexHistory(){
                         </div>
                        </div>
                     </div>
-                    <div className="uppercase text-main-white place-self-centerfix">
+                    <div className="uppercase text-main-white place-self-center">
                         <h2 className="text-base">{data.to.coinFromAmount} {data.to.coinFrom}</h2>
                         <h3 className="text-dark-blue text-sm">{data.to.coinToAmount} {data.to.coinTo}</h3>
                     </div>
