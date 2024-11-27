@@ -8,6 +8,11 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: "576px",
+        md: "960px",
+        lg: "1440px",
+      },
       backgroundImage: {
         "main-bg": "url('/background1.svg')",
       },

@@ -13,26 +13,27 @@ import m_Img from "../public/M-logo.svg";
 import Image from "next/image";
 
 export default function Home() {
- 
   return (
     <main className="">
       {/* Hero Section */}
-      <div className="min-h-screen relative flex flex-col items-center justify-center text-center pt-32 md:pt-[5px] bg-main-bg h-screen mt-0 bg-no-repeat bg-cover px-4">
+      <div className="min-h-screen relative flex flex-col items-center justify-center text-center md:pt-[5px] h-screen px-4">
         <div className="w-full h-[138px] bg-main-bg bg-cover absolute top-0"></div>
-        <Image className="my-5 md:hidden" src={m_Img} alt="Token badge" />
-        <div className="flex flex-col items-center z-10 m-auto">
-          <h1 className="text-2xl md:text-[28px] lg:text-[46px] font-semibold text-[#F7F7F7] max-w-[90%] md:max-w-[700px]">
-            Your Tokens, Your Rules
-          </h1>
-          <p className="my-4 md:my-6 px-4">
-            Set up auto-swaps for multiple tokens and percentages with ease.
-          </p>
-          <button className="flex flex-row gap-3 items-center justify-center py-3 w-[200px] border-2 border-[#2AB2FF] rounded-full text-sm leading-5">
-            Get started
-            <span>
-              <Image src="far.svg" alt="arrow icon" width="5" height="5" />
-            </span>
-          </button>
+        <div className="flex flex-col items-center justify-center m-auto gap-y-10">
+          <Image className="md:hidden" src={m_Img} alt="Token badge" />
+          <div className="flex flex-col items-center z-10 m-auto">
+            <h1 className="text-2xl md:text-[46px] font-semibold text-[#F7F7F7] max-w-[90%] md:max-w-[700px]">
+              Your Tokens, Your Rules
+            </h1>
+            <p className="my-4 md:my-6 px-4">
+              Set up auto-swaps for multiple tokens and percentages with ease.
+            </p>
+            <button className="flex flex-row gap-3 items-center justify-center py-3 w-[200px] border-2 border-[#2AB2FF] rounded-full text-sm leading-5">
+              Get started
+              <span>
+                <Image src="far.svg" alt="arrow icon" width="5" height="5" />
+              </span>
+            </button>
+          </div>
         </div>
         <div className="w-full h-[138px] bg-main-bg bg-cover absolute bottom-0 transform rotate-180"></div>
       </div>
