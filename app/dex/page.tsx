@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from '../components/footer'
 import Swapper from '../components/swapper'
 
 export default function page() {
