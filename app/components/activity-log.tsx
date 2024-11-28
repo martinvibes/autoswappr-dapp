@@ -146,13 +146,12 @@ const activityLog = [
 const ActivityLog = () => {
   return (
     <>
-      <div className="hidden md:block w-full h-[150px] bg-main-bg bg-cover" />
-      <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-28 md:mt-0 md:pt-0 pb-10 mx-auto leading-[19.7px]">
-        <h1 className="text-center capitalize pb-0 md:pb-8 text-2xl text-main-white font-semibold">
+      <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-28 md:mt-0 md:pt-[150px] pb-10 mx-auto leading-[19.7px] h-[100vh]">
+        <h1 className="text-center capitalize pb-0 md:pb-8 text-lg md:text-2xl text-main-white font-semibold mb-4">
           Autoswappr Activity log
         </h1>
         {/* desktop */}
-        <div className="hidden sm:block w-[95%] md:w-[80%] lg:w-[60%] max-w-[800px] overflow-auto max-h-[400px] mx-auto">
+        <div className="hidden sm:block w-[95%] md:w-[80%] lg:w-[60%] max-w-[800px] overflow-auto md:max-h-[600px] mx-auto">
           <div className="flex justify-between capitalize font-normal text-sm w-full border-b-[#170F2E] border-b pb-3 place-content-end">
             <h3>from</h3>
             <h3>to</h3>
@@ -188,7 +187,7 @@ const ActivityLog = () => {
                     </div>
                   </div>
                 </div>
-                <div className="uppercase text-main-white place-self-center">
+                <div className="uppercase text-main-white place-self-center text-left">
                   <h2 className="text-base">
                     {data.to.coinFromAmount} {data.to.coinFrom}
                   </h2>
@@ -254,7 +253,6 @@ const ActivityLog = () => {
           </div>
         </div>
       </section>
-      <div className="hidden md:block w-full h-[50px] bg-main-bg bg-cover bottom-0 transform rotate-180" />
     </>
   );
 };
