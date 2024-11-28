@@ -202,6 +202,7 @@ export default function DexHistory(){
                 </div>)
             })}
             </div>
+            
             {/* mobile */}
             <div className="sm:hidden leading-[19.07px] max-h-[400px] overflow-auto w-full px-10">
                 <div className="capitalize text-main-white flex justify-between border-b border-[#433B5A] pb-3">
