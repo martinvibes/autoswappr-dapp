@@ -1,9 +1,10 @@
-import btc from "../../public/coin-logos/btc-logo.png"
-import eth from "../../public/coin-logos/eth-logo.png"
-import sol from "../../public/coin-logos/sol-logo.png"
-import strk from "../../public/coin-logos/strk-logo.png"
-import usdc from "../../public/coin-logos/usdc-logo.png"
-import usdt from "../../public/coin-logos/usdt-logo.png"
+import btc from "../../public/coin-logos-svg/btc-logo.svg"
+import eth from "../../public/coin-logos-svg/eth-logo.svg"
+import sol from "../../public/coin-logos-svg/sol-logo.svg"
+import strk from "../../public/coin-logos-svg/strk-logo.svg"
+import usdc from "../../public/coin-logos-svg/usdc-logo.svg"
+import usdt from "../../public/coin-logos-svg/usdt-logo.svg"
+import graph from "../../public/coin-logos-svg/graph-logo.svg"
 import Image from "next/image";
 
 const history =[
@@ -47,7 +48,7 @@ const history =[
     },
     {
         from:{
-            fromImage:btc,
+            fromImage:graph,
             toImage:usdt,
             coinFrom:"the graph",
             coinTo:"USDT"
@@ -190,7 +191,7 @@ export default function DexHistory(){
                         </div>
                        </div>
                     </div>
-                    <div className="uppercase text-main-white place-self-center">
+                    <div className="uppercase text-main-white place-self-start ml-12">
                         <h2 className="text-base">{data.to.coinFromAmount} {data.to.coinFrom}</h2>
                         <h3 className="text-dark-blue text-sm">{data.to.coinToAmount} {data.to.coinTo}</h3>
                     </div>
