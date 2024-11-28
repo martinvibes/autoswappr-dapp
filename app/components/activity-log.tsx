@@ -1,214 +1,261 @@
-import btc from "../../public/coin-logos/btc-logo.png"
-import eth from "../../public/coin-logos/eth-logo.png"
-import sol from "../../public/coin-logos/sol-logo.png"
-import strk from "../../public/coin-logos/strk-logo.png"
-import usdc from "../../public/coin-logos/usdc-logo.png"
-import usdt from "../../public/coin-logos/usdt-logo.png"
+import btc from "../../public/coin-logos-svg/btc-logo.svg";
+import eth from "../../public/coin-logos-svg/eth-logo.svg";
+import sol from "../../public/coin-logos-svg/sol-logo.svg";
+import graph from "../../public/coin-logos-svg/graph-logo.svg";
+import strk from "../../public/coin-logos-svg/strk-logo.svg";
+import usdc from "../../public/coin-logos-svg/usdc-logo.svg";
+import usdt from "../../public/coin-logos-svg/usdt-logo.svg";
 import Image from "next/image";
 
 const activityLog = [
-    {
-        from: {
-            fromImage: btc,
-            toImage: usdc,
-            coinFrom: "bitcoin",
-            coinTo: "USDC"
-        },
-        to: {
-            coinTo: "USDC",
-            coinToAmount: 1220,
-            coinFrom: "BTC",
-            coinFromAmount: 0.0002,
-        },
-        percentage: 25,
-        date: {
-            day: "10.09.2024",
-            time: "GMT 21:08 PM",
-        }
+  {
+    from: {
+      fromImage: btc,
+      toImage: usdc,
+      coinFrom: "bitcoin",
+      coinTo: "USDC",
     },
-    {
-        from: {
-            fromImage: btc,
-            toImage: usdt,
-            coinFrom: "bitcoin",
-            coinTo: "USDT"
-        },
-        to: {
-            coinTo: "USDT",
-            coinToAmount: 30,
-            coinFrom: "strk",
-            coinFromAmount: 900,
-        },
-        percentage: 75,
-        date: {
-            day: "21.12.2024",
-            time: "GMT 21:08 PM",
-        }
+    to: {
+      coinTo: "USDC",
+      coinToAmount: 1220,
+      coinFrom: "BTC",
+      coinFromAmount: 0.0002,
     },
-    {
-        from: {
-            fromImage: btc,
-            toImage: usdt,
-            coinFrom: "the graph",
-            coinTo: "USDT"
-        },
-        to: {
-            coinTo: "USDT",
-            coinToAmount: 30,
-            coinFrom: "GRT",
-            coinFromAmount: 200,
-        },
-        percentage: 50,
-        date: {
-            day: "21.12.2024",
-            time: "GMT 21:08 PM",
-        }
+    percentage: 25,
+    date: {
+      day: "10.09.2024",
+      time: "GMT 21:08 PM",
     },
-    {
-        from: {
-            fromImage: strk,
-            toImage: usdc,
-            coinFrom: "starknet",
-            coinTo: "USDC"
-        },
-        to: {
-            coinTo: "USDC",
-            coinToAmount: 30,
-            coinFrom: "strk",
-            coinFromAmount: 900,
-        },
-        percentage: 100,
-        date: {
-            day: "21.12.2024",
-            time: "GMT 21:08 PM",
-        }
+  },
+  {
+    from: {
+      fromImage: btc,
+      toImage: usdt,
+      coinFrom: "bitcoin",
+      coinTo: "USDT",
     },
-    {
-        from: {
-            fromImage: eth,
-            toImage: usdc,
-            coinFrom: "ethereum",
-            coinTo: "USDC"
-        },
-        to: {
-            coinTo: "USDC",
-            coinToAmount: 2500,
-            coinFrom: "eth",
-            coinFromAmount: 0.7,
-        },
-        percentage: 25,
-        date: {
-            day: "21.12.2024",
-            time: "GMT 21:08 PM",
-        }
+    to: {
+      coinTo: "USDT",
+      coinToAmount: 30,
+      coinFrom: "strk",
+      coinFromAmount: 900,
     },
-    {
-        from: {
-            fromImage: sol,
-            toImage: usdt,
-            coinFrom: "solana",
-            coinTo: "USDT"
-        },
-        to: {
-            coinTo: "USDT",
-            coinToAmount: 3000,
-            coinFrom: "sol",
-            coinFromAmount: 10,
-        },
-        percentage: 25,
-        date: {
-            day: "21.12.2024",
-            time: "GMT 21:08 PM",
-        }
+    percentage: 75,
+    date: {
+      day: "21.12.2024",
+      time: "GMT 21:08 PM",
     },
-    {
-        from: {
-            fromImage: btc,
-            toImage: usdc,
-            coinFrom: "Bitcoin",
-            coinTo: "USDT"
-        },
-        to: {
-            coinTo: "USDT",
-            coinToAmount: 10,
-            coinFrom: "strk",
-            coinFromAmount: 900,
-        },
-        percentage: 25,
-        date: {
-            day: "21.12.2024",
-            time: "GMT 21:08 PM",
-        }
+  },
+  {
+    from: {
+      fromImage: graph,
+      toImage: usdt,
+      coinFrom: "the graph",
+      coinTo: "USDT",
     },
-]
+    to: {
+      coinTo: "USDT",
+      coinToAmount: 30,
+      coinFrom: "GRT",
+      coinFromAmount: 200,
+    },
+    percentage: 50,
+    date: {
+      day: "21.12.2024",
+      time: "GMT 21:08 PM",
+    },
+  },
+  {
+    from: {
+      fromImage: strk,
+      toImage: usdc,
+      coinFrom: "starknet",
+      coinTo: "USDC",
+    },
+    to: {
+      coinTo: "USDC",
+      coinToAmount: 30,
+      coinFrom: "strk",
+      coinFromAmount: 900,
+    },
+    percentage: 100,
+    date: {
+      day: "21.12.2024",
+      time: "GMT 21:08 PM",
+    },
+  },
+  {
+    from: {
+      fromImage: eth,
+      toImage: usdc,
+      coinFrom: "ethereum",
+      coinTo: "USDC",
+    },
+    to: {
+      coinTo: "USDC",
+      coinToAmount: 2500,
+      coinFrom: "eth",
+      coinFromAmount: 0.7,
+    },
+    percentage: 25,
+    date: {
+      day: "21.12.2024",
+      time: "GMT 21:08 PM",
+    },
+  },
+  {
+    from: {
+      fromImage: sol,
+      toImage: usdt,
+      coinFrom: "solana",
+      coinTo: "USDT",
+    },
+    to: {
+      coinTo: "USDT",
+      coinToAmount: 3000,
+      coinFrom: "sol",
+      coinFromAmount: 10,
+    },
+    percentage: 25,
+    date: {
+      day: "21.12.2024",
+      time: "GMT 21:08 PM",
+    },
+  },
+  {
+    from: {
+      fromImage: btc,
+      toImage: usdc,
+      coinFrom: "Bitcoin",
+      coinTo: "USDT",
+    },
+    to: {
+      coinTo: "USDT",
+      coinToAmount: 10,
+      coinFrom: "strk",
+      coinFromAmount: 900,
+    },
+    percentage: 25,
+    date: {
+      day: "21.12.2024",
+      time: "GMT 21:08 PM",
+    },
+  },
+];
 
 const ActivityLog = () => {
-    return <>
-        <section className="w-[95%] md:w-[70%] lg:w-[60%] flex justify-center items-center mx-auto mt-3 pt-10 flex-col gap-y-8 h-full">
-            <h1 className="capitalize text-main-white font-semibold text-2xl md:text-3xl text-center md:text-left">Autoswappr Activity Log</h1>
-            
-            {/* Table Headers - Hide on mobile */}
-            <div className="hidden md:grid grid-cols-4 place-content-start text-left capitalize font-medium w-full border-b-[#170F2E] border-b pb-3">
-                <h3 className="text-left">from</h3>
-                <h3 className="text-left">to</h3>
-                <h3 className="text-left">percentage</h3>
-                <h3 className="text-left">Date/Time</h3>
-            </div>
-
-            {activityLog.map((data, index) => {
-                return (
-                    <div key={index} className="flex flex-col md:grid md:grid-cols-4 place-content-start text-left capitalize font-medium w-full bg-[#170F2E] md:bg-transparent rounded-xl md:rounded-none p-4 md:p-0">
-                        {/* From Section */}
-                        <div className="flex items-center gap-3 md:gap-10 mb-3 md:mb-0">
-                            <div className="flex relative">
-                                <Image src={data.from.fromImage} alt="coin from" className="w-5 h-5 md:w-6 md:h-6" />
-                                <Image src={data.from.toImage} alt="coin to" className="absolute left-3 md:left-5 w-5 h-5 md:w-6 md:h-6" />
-                            </div>
-                            <div className="capitalize text-main-white">
-                                <h2 className="text-sm md:text-base">{data.from.coinFrom}</h2>
-                                <h3 className="text-dark-blue text-xs md:text-base">{data.from.coinTo}</h3>
-                            </div>
-                        </div>
-
-                        {/* Mobile Layout - Top Row */}
-                        <div className="flex justify-between items-start md:hidden mb-4">
-                            <div className="bg-[#100827] rounded-xl px-3 py-1 text-xs">
-                                {data.percentage}%
-                            </div>
-                        </div>
-
-                        {/* Desktop Amount Section */}
-                        <div className="hidden md:block uppercase text-main-white text-left">
-                            <h2>{data.to.coinFromAmount} {data.to.coinFrom}</h2>
-                            <h3 className="text-dark-blue">{data.to.coinToAmount} {data.to.coinTo}</h3>
-                        </div>
-
-                        {/* Desktop Percentage Section */}
-                        <div className="hidden md:block bg-[#100827] rounded-2xl w-fit h-fit place-items-center px-4 py-1">
-                            {data.percentage}%
-                        </div>
-
-                        {/* Desktop Date Section */}
-                        <div className="hidden md:block uppercase text-main-white text-left">
-                            <h2>{data.date.day}</h2>
-                            <h3 className="text-dark-blue">{data.date.time}</h3>
-                        </div>
-
-                        {/* Mobile Layout - Bottom Row */}
-                        <div className="md:hidden flex justify-between items-end pt-2 border-t border-[#2A2440]">
-                            <div className="uppercase text-main-white">
-                                <h2 className="text-sm font-medium">{data.to.coinFromAmount} {data.to.coinFrom}</h2>
-                                <h3 className="text-dark-blue text-xs">{data.to.coinToAmount} {data.to.coinTo}</h3>
-                            </div>
-                            <div className="text-right">
-                                <h2 className="text-main-white text-sm font-medium">{data.date.day}</h2>
-                                <h3 className="text-dark-blue text-xs">{data.date.time}</h3>
-                            </div>
-                        </div>
+  return (
+    <>
+      <div className="hidden md:block w-full h-[150px] bg-main-bg bg-cover" />
+      <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-28 md:mt-0 md:pt-0 pb-10 mx-auto leading-[19.7px]">
+        <h1 className="text-center capitalize pb-0 md:pb-8 text-2xl text-main-white font-semibold">
+          Autoswappr Activity log
+        </h1>
+        {/* desktop */}
+        <div className="hidden sm:block w-[95%] md:w-[80%] lg:w-[60%] max-w-[800px] overflow-auto max-h-[400px] mx-auto">
+          <div className="flex justify-between capitalize font-normal text-sm w-full border-b-[#170F2E] border-b pb-3 place-content-end">
+            <h3>from</h3>
+            <h3>to</h3>
+            <h3>percentage</h3>
+            <h3>autoSwapper</h3>
+          </div>
+          {activityLog.map((data, index) => {
+            return (
+              <div
+                className="grid grid-cols-4 place-content-between capitalize font-medium w-full py-5"
+                key={index}
+              >
+                <div className="flex items-center gap-[12px]">
+                  <h1 className="text-dark-blue">{index + 1}</h1>
+                  <div className="flex gap-10 items-center">
+                    <div className="flex relative">
+                      <Image
+                        src={data.from.fromImage}
+                        alt="coin from"
+                        className="w-6 h-6"
+                      />
+                      <Image
+                        src={data.from.toImage}
+                        alt="coin to"
+                        className="absolute left-5"
+                      />
                     </div>
-                )
+                    <div className="capitalize text-main-white">
+                      <h2 className="text-base">{data.from.coinFrom}</h2>
+                      <h3 className="text-dark-blue text-sm">
+                        {data.from.coinTo}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+                <div className="uppercase text-main-white place-self-center">
+                  <h2 className="text-base">
+                    {data.to.coinFromAmount} {data.to.coinFrom}
+                  </h2>
+                  <h3 className="text-dark-blue text-sm">
+                    {data.to.coinToAmount} {data.to.coinTo}
+                  </h3>
+                </div>
+                <div className="bg-[#100827] rounded-2xl w-fit h-fit place-self-center  px-4 py-1">
+                  {data.percentage}%
+                </div>
+                <div className="uppercase text-main-white place-self-end">
+                  <h2 className="text-base">{data.date.day}</h2>
+                  <h3 className="text-dark-blue text-sm">{data.date.time}</h3>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {/* mobile */}
+        <div className="sm:hidden leading-[19.07px] max-h-[400px] overflow-auto w-full px-10">
+          <div className="capitalize text-main-white flex justify-between border-b border-[#433B5A] pb-3">
+            <h2>token</h2>
+            <h2>amount</h2>
+          </div>
+          <div className="capitalize text-main-white flex flex-col justify-between">
+            {activityLog.map((data, index) => {
+              return (
+                <div className="py-5 flex justify-between w-full" key={index}>
+                  <div className="flex items-center gap-[12px]">
+                    <h1 className="text-dark-blue">{index + 1}</h1>
+                    <div className="flex gap-10 items-center">
+                      <div className="flex relative">
+                        <Image
+                          src={data.from.fromImage}
+                          alt="coin from"
+                          className="w-6 h-6"
+                        />
+                        <Image
+                          src={data.from.toImage}
+                          alt="coin to"
+                          className="absolute left-5"
+                        />
+                      </div>
+                      <div className="capitalize text-main-white">
+                        <h2 className="text-sm">{data.from.coinFrom}</h2>
+                        <h3 className="text-dark-blue text-xs">
+                          {data.from.coinTo}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="uppercase text-main-white text-start">
+                    <h2 className="font-normal text-sm text-start">
+                      {data.to.coinFromAmount} {data.to.coinFrom}
+                    </h2>
+                    <h3 className="text-dark-blue font-semibold text-xs text-start">
+                      {data.to.coinToAmount} {data.to.coinTo}
+                    </h3>
+                  </div>
+                </div>
+              );
             })}
-        </section>
+          </div>
+        </div>
+      </section>
+      <div className="hidden md:block w-full h-[50px] bg-main-bg bg-cover bottom-0 transform rotate-180" />
     </>
-}
+  );
+};
 export default ActivityLog;
