@@ -13,7 +13,6 @@ export default function page() {
         <div className='pt-10' />
         <Swapper />
       </div>
-      <Footer />
     </div>
   )
 }

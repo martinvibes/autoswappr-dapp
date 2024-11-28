@@ -1,51 +1,92 @@
-"use client"
-import Link from "next/link";
+"use client";
+import React, { useState } from "react";
 import ConnectWallet from "./connect-wallet";
+import Image from "next/image";
+import Logo from "@/public/autoswappr.png";
+import { X } from "lucide-react";
+import menu from "@/public/menu-11.svg";
+import Link from "next/link";
 import { TetherLogo } from "@/assets/general";
-import { Logo } from "@/assets/navbar";
-import { useState } from "react";
 
-export default function Navbar() {
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const navLinks = [
+    { title: "Home", href: "#" },
+    { title: "Activity", href: "#" },
+    { title: "Dex", href: "/dex" },
+  ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#000014CC] bg-opacity-80 backdrop-blur-lg py-4 px-6 md:px-20 z-50">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center">
-          <Logo />
-        </div>
-
-        <div className="hidden md:flex items-center space-x-8">
-          <Link href="/" className="text-primaryText text-base hover:text-[#49ABD2]">
-            Home
-          </Link>
-          <Link href="#" className="text-primaryText text-base hover:text-[#49ABD2]">
-            Activity
-          </Link>
-          <Link href="/dex" className="text-primaryText text-base hover:text-[#49ABD2]">
-            Dex
-          </Link>
-        </div>
-
-        <div className="hidden md:flex items-center gap-x-4">
-          <div className="flex items-center justify-center gap-x-2 bg-[#100827] rounded-full px-4 py-2">
-            <TetherLogo />
-            <span className="text-primaryText text-sm">USDT: $114,000</span>
+    <nav className="fixed top-0 left-0 w-full h-[88px] bg-[#000014CC] px-4 sm:px-5 md:px-[80px] z-20">
+      <div className="h-full max-w-7xl mx-auto flex items-center justify-between">
+        <div className="flex items-center gap-x-[80px]">
+          {/* Logo */}
+          <div className="flex items-center cursor-pointer">
+            <Image
+              className="w-[100px] h-[44px] md:w-[124px] md:h-[54px]"
+              src={Logo}
+              alt="Logo"
+            />
           </div>
+
+          {/* Desktop Navigation */}
+          <ul className="hidden md:flex items-center gap-6 md:left-[300px]">
+            {navLinks.map((link) => (
+              <li key={link.title}>
+                <a
+                  href={link.href}
+                  className="text-base text-[#e7ecf0] hover:text-white transition-colors"
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Connect Wallet Button */}
+        <div className="hidden md:flex items-center">
           <ConnectWallet />
         </div>
 
-    
+        {/* Mobile Menu Button */}
         <button
-          className="flex md:hidden flex-col space-y-1 focus:outline-none"
+          className="md:hidden p-2 text-white"
           onClick={toggleMenu}
+          aria-label="Toggle menu"
         >
-          <span className="block h-[0.9px] w-6 bg-white"></span>
-          <span className="block h-[0.9px] w-6 bg-white"></span>
-          <span className="block h-[0.9px] w-6 bg-white"></span>
+          {isMenuOpen ? (
+            <X size={24} />
+          ) : (
+            <Image src={menu} alt="menu icon" width={24} height={24} />
+          )}
         </button>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="absolute top-[94px] left-0 w-full bg-[#000014] md:hidden">
+            <ul className="flex flex-col py-4">
+              {navLinks.map((link) => (
+                <li key={link.title} className="px-4 py-2">
+                  <a
+                    href={link.href}
+                    className="text-base text-[#e7ecf0] hover:text-white block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.title}
+                  </a>
+                </li>
+              ))}
+              <li className="px-4 py-2">
+                <ConnectWallet />
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
 
       {isMenuOpen && (
@@ -73,4 +114,6 @@ export default function Navbar() {
       )}
     </nav>
   );
-}
+};
+
+export default Navbar;

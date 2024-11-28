@@ -1,37 +1,52 @@
-import { DiscordIcon, GithubIcon, TelegramIcon } from '@/assets/general'
-import Link from 'next/link'
-import React from 'react'
+import React from "react";
+import Image from "next/image";
 
-export default function Footer() {
-    return (
-        <footer className="bg-[#000014] text-white py-8 flex justify-center fixed bottom-0 w-full">
-            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-                <div className="text-sm">
-                    copyright@Autoswappr2024
-                </div>
-                <div className="flex items-center gap-x-4">
-                    <Link href="" className="text-primaryText text-[1em]" >
-                        Team
-                    </Link>
-                    <Link href="" className="text-primaryText text-[1em]" >
-                        Documentation
-                    </Link>
-                </div>
+const Footer = () => {
+  return (
+    <footer className="flex flex-col-reverse md:flex-row justify-between items-center w-full min-h-[100px] bg-[#000014] px-4 md:px-8 lg:px-20 py-6 md:py-0 gap-6 md:gap-4">
+      {/* Copyright section */}
+      <div className="text-center md:text-left">
+        <p className="text-sm md:text-base text-gray-600">
+          copyright@Autoswappr2024
+        </p>
+      </div>
 
+      {/* Social icons section */}
+      <div className="flex items-center gap-6">
+        <Image
+          className="w-4 h-4 md:w-5 md:h-5 hover:opacity-80 cursor-pointer"
+          src="git.svg"
+          alt="GitHub"
+          width="4"
+          height="4"
+        />
+        <Image
+          className="w-4 h-4 md:w-5 md:h-5 hover:opacity-80 cursor-pointer"
+          src="telegram.svg"
+          alt="Telegram"
+          width="4"
+          height="4"
+        />
+        <Image
+          className="w-4 h-4 md:w-5 md:h-5 hover:opacity-80 cursor-pointer"
+          src="x.svg"
+          alt="X (Twitter)"
+          width="4"
+          height="4"
+        />
+      </div>
 
-                <div className="flex space-x-4">
-                    <Link href="" className="text-primaryText text-[1em]" >
-                        <TelegramIcon />
-                    </Link>
-                    <Link href="" className="text-primaryText text-[1em]" >
-                        <GithubIcon />
-                    </Link>
-                    <Link href="" className="text-primaryText text-[1em]" >
-                        <DiscordIcon />
-                    </Link>
-                </div>
-            </div>
-        </footer>
+      {/* Navigation section */}
+      <div className="flex flex-row items-center gap-4 md:gap-8">
+        <p className="text-sm md:text-base hover:opacity-80 cursor-pointer">
+          Team
+        </p>
+        <p className="text-sm md:text-base hover:opacity-80 cursor-pointer">
+          Documentation
+        </p>
+      </div>
+    </footer>
+  );
+};
 
-    )
-}
+export default Footer;
