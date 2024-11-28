@@ -164,11 +164,11 @@ const history =[
 export default function DexHistory(){
     return(
         <>
-           <div className="hidden md:block w-full h-[150px] bg-main-bg bg-cover" />
-           <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-28 md:mt-0 md:pt-0 pb-10 mx-auto leading-[19.7px]">
-            <h1 className="text-center capitalize pb-0 md:pb-8 text-2xl text-main-white font-semibold">history log</h1>
+           <div className="hidden md:block w-full h-[100px] bg-main-bg bg-cover" />
+           <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-20 md:mt-0 md:py-16 pb-10 leading-[19.7px] h-screen flex flex-col justify-center items-center">
+            <h1 className="text-center capitalize pb-8 text-2xl text-main-white font-semibold">history log</h1>
             {/* desktop */}
-            <div className="hidden sm:block w-[95%] md:w-[80%] lg:w-[60%] max-w-[800px] overflow-auto max-h-[400px] mx-auto">
+            <div className="hidden sm:block w-[95%] md:w-[80%] lg:w-[60%] max-w-[800px] overflow-auto sm:h-[500px] md:h-[700px] mx-auto">
             <div className="flex justify-between capitalize font-normal text-sm w-full border-b-[#170F2E] border-b pb-3 place-content-end">
                 <h3>from</h3>
                 <h3>to</h3>
@@ -202,7 +202,7 @@ export default function DexHistory(){
                 </div>)
             })}
             </div>
-            
+
             {/* mobile */}
             <div className="sm:hidden leading-[19.07px] max-h-[400px] overflow-auto w-full px-10">
                 <div className="capitalize text-main-white flex justify-between border-b border-[#433B5A] pb-3">
