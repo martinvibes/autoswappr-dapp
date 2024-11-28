@@ -118,9 +118,7 @@ const Swapper = () => {
             onClick={handleTokenSwap}
             className="absolute top-[44%] h-[46px] w-[46px] rounded-full p-2  flex justify-center items-center border-[1px] border-[#1E1E1E] bg-[#170F2E]"
           >
-            <div className="relative flex h-[15.95px] w-[15.95px] items-center justify-center md:h-[32px] md:w-[32px] bg-[#170F2E] p-2 rounded-full">
-              <RefreshCcw size={24} />
-            </div>
+            <RefreshCcw size={24} />
           </button>
 
           <div className="flex w-full flex-col">
@@ -152,9 +150,15 @@ const Swapper = () => {
         </div>
 
         <div className="flex justify-between items-cente py-10 text-sm leading-5 text-[#A4A4A4]">
-          <div className="flex items-center gap-x-1"><ApproximateIcon /> <span className="text-base"> History</span></div>
-          <div className="flex items-center gap-x-2"><span>Gas fee:</span> <div className="flex items-center gap-x-1" >
-            <GasFeeIcon /> <span>$0.00</span></div></div>
+          <div className="flex items-center gap-x-1">
+            <ApproximateIcon /> <span className="text-base"> History</span>
+          </div>
+          <div className="flex items-center gap-x-2">
+            <span>Gas fee:</span>{" "}
+            <div className="flex items-center gap-x-1">
+              <GasFeeIcon /> <span>$0.00</span>
+            </div>
+          </div>
         </div>
 
         {error && (
@@ -167,14 +171,11 @@ const Swapper = () => {
           onClick={handleSwap}
           disabled={isLoading || !address}
           type="submit"
-          className={`w-full rounded-full py-[20px] font-[600] md:text-[16px] bg-[#100827] text-[#F4F4F4] ${isLoading ? "cursor-not-allowed opacity-50" : "cursor-pointer"
-            }`}
+          className={`w-full rounded-full py-[20px] font-[600] md:text-[16px] bg-[#100827] text-[#F4F4F4] ${
+            isLoading ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+          }`}
         >
-          {isLoading
-            ? "Processing..."
-            : address
-              ? "Swap"
-              : "Connect Wallet"}
+          {isLoading ? "Processing..." : address ? "Swap" : "Connect Wallet"}
         </button>
       </form>
     </div>
