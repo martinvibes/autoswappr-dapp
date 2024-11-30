@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { useAccount, useDisconnect } from "@starknet-react/core";
-import { WalletModal } from "./WalletModal";
+import { useAccount } from "@starknet-react/core";
 import { MoreVertical } from "lucide-react";
 import Image from "next/image";
 import usdt from "../../public/usdt.svg"
@@ -10,7 +8,6 @@ import userIcon from "../../public/user.png"
 
 const Address: React.FC = () => {
   const { address } = useAccount();
-  const { disconnect } = useDisconnect();
 
   const shortenAddress = (address: string) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
@@ -19,7 +16,7 @@ const Address: React.FC = () => {
   return (
     <div className="flex items-center gap-1 rounded-lg p-2 max-w-full overflow-x-auto">
       <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full">
-        {/* USDT Balance */}
+       
         <div className="flex bg-[#100827] items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 rounded-full w-full sm:w-auto whitespace-nowrap">
           <Image 
             src={usdt} 
@@ -31,7 +28,6 @@ const Address: React.FC = () => {
           <span className="font-medium text-sm sm:text-base">USDT: $114,000</span>
         </div>
 
-        {/* Address */}
         <div className="flex bg-[#100827] items-center gap-2 px-4 sm:px-6 py-3 sm:py-4 rounded-full w-full sm:w-auto">
           <Image 
             src={userIcon} 

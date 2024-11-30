@@ -2,14 +2,13 @@
 
 // WalletBar.tsx
 import { useState } from "react";
-import { useAccount, useDisconnect } from "@starknet-react/core";
+import { useAccount } from "@starknet-react/core";
 import { WalletModal } from "./WalletModal";
 import Address from "./address";
 
 const WalletBar: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { address } = useAccount();
-  const { disconnect } = useDisconnect();
 
   return (
     <>
