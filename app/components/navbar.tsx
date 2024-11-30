@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import ConnectWallet from "./connect-wallet";
+import WalletBar from "./WalletBar";
 import Image from "next/image";
 import Logo from "@/public/autoswappr.png";
 import { X } from "lucide-react";
 import menu from "@/public/menu-11.svg";
-import Link from "next/link";
-import { TetherLogo } from "@/assets/general";
+// import Link from "next/link";
+// import { TetherLogo } from "@/assets/general";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,7 +50,7 @@ const Navbar = () => {
         </div>
         {/* Connect Wallet Button */}
         <div className="hidden md:flex items-center">
-          <ConnectWallet />
+          <WalletBar />
         </div>
 
         {/* Mobile Menu Button */}
@@ -82,14 +82,14 @@ const Navbar = () => {
                 </li>
               ))}
               <li className="px-4 py-2">
-                <ConnectWallet />
+                <WalletBar />
               </li>
             </ul>
           </div>
         )}
       </div>
 
-      {isMenuOpen && (
+      {/* {isMenuOpen && (
         <div className="mt-10 md:hidden">
           <div className="flex flex-col space-y-4">
             <Link href="/" className="text-primaryText text-base hover:text-[#49ABD2]">
@@ -108,10 +108,10 @@ const Navbar = () => {
               <TetherLogo />
               <span className="text-primaryText text-sm">USDT: $114,000</span>
             </div>
-            <ConnectWallet />
+            <WalletBar />
           </div>
         </div>
-      )}
+      )} */}
     </nav>
   );
 };
