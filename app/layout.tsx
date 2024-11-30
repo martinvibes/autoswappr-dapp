@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/navbar";
-import { Providers } from "./components/providers";
+import { StarknetProvider } from "./components/starknet-provider";
 import Footer from "./components/footer";
 
 export const metadata: Metadata = {
@@ -16,14 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
+      <StarknetProvider>
         <body className="relative w-full bg-[#08001F] bg-cover bg-center bg-no-repeat">
           <Navbar />
           {children}
           <Footer />
         </body>
 
-      </Providers>
+      </StarknetProvider>
     </html>
   );
 }
