@@ -5,8 +5,8 @@ import Image from "next/image";
 import Logo from "@/public/autoswappr.png";
 import { X } from "lucide-react";
 import menu from "@/public/menu-11.svg";
-import Link from "next/link";
-import { TetherLogo } from "@/assets/general";
+// import Link from "next/link";
+// import { TetherLogo } from "@/assets/general";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

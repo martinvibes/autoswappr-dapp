@@ -102,7 +102,7 @@ export function WalletModal({ isOpen, setIsOpen }: WalletModalProps) {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel className="w-full text-center max-w-md md:max-w-[800px] transform rounded-3xl bg-[#08001F] border border-[#170F2E] p-8 shadow-xl transition-all">
-                <div className="flex relative justify-center mt-6 text-center items-center mb-6">
+                <div className="flex relative justify-center mt-5 text-center items-center mb-5">
                   <Dialog.Title
                     as="h3"
                     className="text-2xl font-medium text-white"
@@ -111,7 +111,7 @@ export function WalletModal({ isOpen, setIsOpen }: WalletModalProps) {
                   </Dialog.Title>
                   <button
                     onClick={handleClose}
-                    className="text-gray-400 hover:text-white absolute right-0 transition-colors"
+                    className="text-gray-400 hover:text-white absolute right-5 transition-colors"
                   >
                     <X className="w-6 h-6" />
                   </button>
