@@ -59,4 +59,4 @@ Vercel will automatically detect your project settings and deploy your app.
 For more detailed deployment instructions, see the Next.js deployment documentation.
 
 ## Contribution
-We welcome contributions to make Autoswappr even better! If you have ideas, suggestions, or bug fixes, feel free to open an issue or submit a pull request in the repository.
+We welcome contributions to make Autoswappr even better! If you have ideas, suggestions, or bug fixes, feel free to [Contribute](/contribute/new)
