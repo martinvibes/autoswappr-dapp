@@ -5,8 +5,11 @@ import { MoreVertical } from "lucide-react";
 import Image from "next/image";
 import usdt from "../../public/usdt.svg"
 import userIcon from "../../public/user.png"
+import DisconnectModal from "./disconnect-modal";
+import { useState } from "react";
 
 const Address: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { address } = useAccount();
 
   const shortenAddress = (address: string) => {
@@ -42,11 +45,12 @@ const Address: React.FC = () => {
             </span>
           </div>
           <button 
-            onClick={() => {}}
+            onClick={() => setIsModalOpen(true)}
             className="p-1 hover:bg-gray-800 rounded transition-colors ml-1"
           >
             <MoreVertical className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
           </button>
+          <DisconnectModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
         </div>
       </div>
     </div>
