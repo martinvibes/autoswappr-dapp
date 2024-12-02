@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## AutoSwappr
+Autoswappr is a modern web application built using Next.js, a powerful React-based framework for creating server-side rendered and static websites. This project was bootstrapped with `create-next-app`, making it easy to get started with a pre-configured setup.
 
 ## Getting Started
 
-First, run the development server:
+To set up and run the project locally, follow these steps:
 
+## Prerequisites
+Before you begin, ensure you have the following installed on your system:
+- NodeJS: Download and install the latest version from NodeJS official site.
+- Package Manager: You can use one of the following package managers:
+    - `pnpm`: Install via npm with `npm install -g pnpm`.
+
+## Installation
+
+- Clone the repository to your local machine:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-repository/autoswappr.git
+
+cd autoswappr
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Install dependencies:
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once the server is running, open your browser and navigate to http://localhost:3000 to view the app.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Live Reloading
+You can start editing the app by modifying the main file located at: `app/page.tsx`
 
-## Learn More
+Changes you make will automatically refresh the browser, so you can see updates in real-time.
 
-To learn more about Next.js, take a look at the following resources:
+## Key Features
+## Optimized Fonts
+This project uses the next/font package to automatically optimize and load Geist, a clean and modern font provided by Vercel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment Ready
+Autoswappr is designed to be easily deployed using platforms like Vercel. Vercel offers a seamless hosting experience for Next.js applications, with built-in optimizations for performance and scalability.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
+The recommended platform for deploying this application is Vercel, the creators of Next.js. To deploy your app:
+Push your code to a GitHub, GitLab, or Bitbucket repository.
+Connect your repository to Vercel by following these steps.
+Vercel will automatically detect your project settings and deploy your app.
+For more detailed deployment instructions, see the Next.js deployment documentation.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contribution
+We welcome contributions to make Autoswappr even better! If you have ideas, suggestions, or bug fixes, feel free to [Contribute](./contributing.md)
