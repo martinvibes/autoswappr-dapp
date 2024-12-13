@@ -1,49 +1,43 @@
 import React from "react";
 import Image from "next/image";
+import { footerDocumentation, footerIcon } from "./Footer";
 
 const Footer = () => {
+  const date = new Date().getFullYear();
   return (
     <footer className="flex flex-col-reverse md:flex-row justify-between items-center w-full min-h-[100px] bg-[#000014] px-4 md:px-8 lg:px-20 py-6 md:py-0 gap-6 md:gap-4">
       {/* Copyright section */}
       <div className="text-center md:text-left">
         <p className="text-sm md:text-base text-gray-600">
-          copyright@Autoswappr2024
+          copyright@Autoswappr {date}
         </p>
       </div>
 
       {/* Social icons section */}
       <div className="flex items-center gap-6">
-        <Image
-          className="w-4 h-4 md:w-5 md:h-5 hover:opacity-80 cursor-pointer"
-          src="git.svg"
-          alt="GitHub"
-          width="4"
-          height="4"
-        />
-        <Image
-          className="w-4 h-4 md:w-5 md:h-5 hover:opacity-80 cursor-pointer"
-          src="telegram.svg"
-          alt="Telegram"
-          width="4"
-          height="4"
-        />
-        <Image
-          className="w-4 h-4 md:w-5 md:h-5 hover:opacity-80 cursor-pointer"
-          src="x.svg"
-          alt="X (Twitter)"
-          width="4"
-          height="4"
-        />
+        {footerIcon.map((icon, index) => (
+          <a
+            key={index}
+            href={icon.path}
+            className="text-sm md:text-xl hover:opacity-80 cursor-pointer"
+          >
+            <icon.icons />
+            {/* w-4 h-4 md:w-5 md:h-5  */}
+          </a>
+        ))}
       </div>
 
       {/* Navigation section */}
       <div className="flex flex-row items-center gap-4 md:gap-8">
-        <p className="text-sm md:text-base hover:opacity-80 cursor-pointer">
-          Team
-        </p>
-        <p className="text-sm md:text-base hover:opacity-80 cursor-pointer">
-          Documentation
-        </p>
+        {footerDocumentation.map((doc, index) => (
+          <a
+            key={index}
+            href={doc.path}
+            className="text-sm md:text-base hover:opacity-80 cursor-pointer"
+          >
+            {doc.name}
+          </a>
+        ))}
       </div>
     </footer>
   );
