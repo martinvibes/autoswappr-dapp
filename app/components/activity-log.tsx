@@ -147,27 +147,27 @@ const ActivityLog = () => {
   return (
     <>
       <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-[160px] md:mt-0 pb-12 mx-auto leading-[19.7px] h-[100vh]">
-        <h1 className="text-center capitalize p-0 mb-8 text-lg md:text-2xl lg:text-3xl font-[600] text-main-white">
+        <h1 className="text-center capitalize p-0 mb-8 text-lg md:text-2xl font-[600] text-main-white">
           Autoswappr Activity log
         </h1>
         {/* desktop */}
-        <table className="group relative hidden px-4 sm:flex sm:flex-col w-[96%] md:w-[88%] lg:w-[64%] max-w-[800px] overflow-auto scrollbar-hide max-h-[576px] md:max-h-[600px] mx-auto items-center justify-start">
-          <thead className="w-full">
-            <tr className="flex justify-between capitalize font-normal text-xs md:text-sm w-full border-b-[#170F2E] border-b pb-3 place-content-end">
-              <th>from</th>
-              <th>to</th>
-              <th>percentage</th>
-              <th>Date/Time</th>
+        <table className="relative hidden px-4 sm:flex sm:flex-col w-[96%] md:w-[88%] lg:w-[64%] max-w-[800px] h-full mx-auto items-center justify-start">
+          <thead className="w-full border-[#170F2E] border-b">
+            <tr className="flex items-center justify-between space-x-4 capitalize font-normal text-xs md:text-sm w-full pb-3">
+              <th className="flex items-center justify-start flex-none w-[35%]">from</th>
+              <th className="flex items-start justify-start flex-none w-[15%]">to</th>
+              <th className="flex items-center justify-center flex-none w-[15%]">percentage</th>
+              <th className="flex items-center justify-end flex-none w-[27.5%]">Date/Time</th>
             </tr>
           </thead>
-          <tbody className="w-full">
+          <tbody className="w-full overflow-y-auto overflow-x-hidden scrollbar-hide max-h-[540px] md:max-h-[520px] xl:max-h-[560px]">
             {activityLog.map((data, index) => {
               return (
                 <tr
-                  className="grid grid-cols-4 place-content-between capitalize font-medium w-full py-5"
+                  className="flex items-center justify-between space-x-4 capitalize font-medium w-full py-4"
                   key={index}
                 >
-                  <td className="flex items-center gap-[12px]">
+                  <td className="flex items-center justify-start flex-none w-[35%] space-x-4">
                     <h1 className="text-[#433B5A]">{index + 1}.</h1>
                     <div className="flex gap-8 items-center">
                       <div className="flex flex-none w-auto relative">
@@ -192,7 +192,7 @@ const ActivityLog = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="uppercase text-main-white place-self-center text-left">
+                  <td className="flex items-start justify-start flex-none flex-col w-[15%] uppercase text-main-white">
                     <h2 className="text-sm md:text-base">
                       {data.to.coinFromAmount} {data.to.coinFrom}
                     </h2>
@@ -200,12 +200,12 @@ const ActivityLog = () => {
                       {data.to.coinToAmount} {data.to.coinTo}
                     </h3>
                   </td>
-                  <td className="bg-[#100827] rounded-full w-fit h-fit place-self-center px-6 py-3">
-                    <span className="text-xs md:text-sm">
+                  <td className="flex items-center justify-center flex-none w-[15%]">
+                    <span className="text-xs md:text-sm w-auto h-auto bg-[#100827] rounded-full px-6 py-3">
                       {data.percentage}%
                     </span>
                   </td>
-                  <td className="uppercase text-main-white place-self-end">
+                  <td className="flex items-end justify-end flex-none flex-col w-[27.5%] uppercase text-main-white pr-2">
                     <h2 className="text-base">{data.date.day}</h2>
                     <h3 className="text-[#433B5A] text-sm">{data.date.time}</h3>
                   </td>
