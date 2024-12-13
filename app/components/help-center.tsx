@@ -4,6 +4,21 @@ import Select from "./selectOption";
 import Image from "next/image";
 
 function HelpCenter() {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const email = (form.email as HTMLInputElement).value.trim();
+    const subject = (form.subject as HTMLSelectElement).value.trim();
+    const details = (form.details as HTMLTextAreaElement).value.trim();
+
+    if (!email || !subject || !details) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    alert("Form submitted successfully!");
+  };
   return (
     <main className="relative">
       {/* <Navbar /> */}
@@ -23,7 +38,10 @@ function HelpCenter() {
                 our team will get back to you within 24-48 hours.
               </p>
             </div>
-            <form className="flex flex-col gap-y-10 text-start mb-20">
+            <form
+              className="flex flex-col gap-y-10 text-start mb-20"
+              onSubmit={handleSubmit}
+            >
               <div className="flex flex-col gap-y-5">
                 <label htmlFor="email">
                   Your email address <span className="text-[#FC8181]">*</span>
@@ -32,6 +50,7 @@ function HelpCenter() {
                   type="text"
                   placeholder="Your email address"
                   className="p-[16px] rounded-full bg-[#100827]"
+                  name="email"
                 />
               </div>
               <div className="flex flex-col gap-y-5">
@@ -52,6 +71,7 @@ function HelpCenter() {
                   rows={7}
                   placeholder="Write your message here…"
                   className="px-[16px] py-[12px] bg-[#100827] rounded-2xl"
+                  name="details"
                 />
                 <p className="text-[14px]">
                   To provide the best assistance, please include as much detail
@@ -62,12 +82,23 @@ function HelpCenter() {
               </div>
               <div className="flex flex-col gap-y-5">
                 <p>Attachments(Optional)</p>
+                <label
+                  htmlFor="attachments"
+                  className="cursor-pointer py-3 px-6 bg-[#0F96E3] text-white rounded-full text-center block w-fit"
+                >
+                  Choose Files
+                </label>
                 <input
-                  type="upload"
-                  placeholder="Add file or drop files here"
-                  className="p-[16px] rounded-full bg-[#100827] text-center"
+                  type="file"
+                  id="attachments"
+                  name="attachments"
+                  className="hidden"
+                  multiple
                 />
               </div>
+              <p className="text-[14px] text-[#D2CED8]">
+                Add file or drop files here.
+              </p>
               <button
                 type="submit"
                 className="py-4 md:w-[309px] w-auto  flex items-center justify-center bg-[#0F96E3] rounded-full text-[16px]"
