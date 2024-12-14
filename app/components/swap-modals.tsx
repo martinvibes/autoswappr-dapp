@@ -307,7 +307,7 @@ export function SwapTo({ handleClose, onTokenSelect }: ModalProps) {
   return (
     <div
       className={`p-6 lg:p-12 flex flex-col gap-6 lg:gap-7 h-max-[40rem]
-      w-[24rem] lg:w-[32rem] items-start no-scrollbar overflow-y-auto`}
+      w-[24rem] lg:w-[32rem] items-start no-scrollbar overflow-y-auto mt-24`}
     >
       <ModalHeader handleClose={handleClose} from={false} />
       <SearchToken searchTokens={searchTokens} />
@@ -388,7 +388,7 @@ export function SwapFrom({ handleClose, onTokenSelect }: ModalProps) {
   return (
     <div
       className={`p-6 lg:p-12 flex flex-col gap-6 lg:gap-7 h-max-[40rem]
-      w-[24rem] lg:w-[32rem] items-start no-scrollbar overflow-y-auto`}
+      w-[24rem] lg:w-[32rem] items-start no-scrollbar overflow-y-auto mt-24`}
     >
       <ModalHeader handleClose={handleClose} from />
       <SearchToken searchTokens={searchTokens} />
