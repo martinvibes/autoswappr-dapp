@@ -16,8 +16,8 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { title: "Home", href: "#" },
-    { title: "Activity", href: "#" },
+    { title: "Home", href: "/" },
+    { title: "Activity", href: "/activity-log" },
     { title: "Dex", href: "/dex" },
   ];
 
