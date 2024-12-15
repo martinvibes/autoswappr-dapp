@@ -6,29 +6,29 @@ import {
     useReadContract
 } from "@starknet-react/core";
 
-const {account, address} = useAccount();
+const ApproveTokens = (contractAddress: `0x${string}`, spender: string, amount: bigint) => {
 
-export const approveTokens = async (contractAddress: `0x${string}`, spender: string, amount: bigint) => {
+    const {account, address} = useAccount();
 
     // Contract Initialization
     const { contract } = useContract({
-        abi: [{
+        abi: [ {
             "type": "function",
             "name": "approve",
             "inputs": [
-                {
-                    "name": "spender",
-                    "type": "core::starknet::contract_address::ContractAddress"
-                },
-                {
-                    "name": "amount",
-                    "type": "core::integer::u256"
-                }
+            {
+                "name": "spender",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "amount",
+                "type": "core::integer::u256"
+            }
             ],
             "outputs": [
-                {
-                    "type": "core::bool"
-                }
+            {
+                "type": "core::bool"
+            }
             ],
             "state_mutability": "external"
         }],
@@ -36,11 +36,9 @@ export const approveTokens = async (contractAddress: `0x${string}`, spender: str
         provider: account
     });
 
-    // const calls
-
     const { isError, error, send, data, isPending } = useSendTransaction({ 
         calls: 
-            contract && address 
+        contract && address 
             ? [contract.populate("approve", [spender, cairo.uint256(amount)])] 
             : undefined, 
     }); 
@@ -60,27 +58,30 @@ export const approveTokens = async (contractAddress: `0x${string}`, spender: str
     }
 };
 
+
 // func to get approved amount
-export const getApprovedAmount = async (contractAddress: `0x${string}`, spender: string) => {
+const GetApprovedAmount = (contractAddress: `0x${string}`, spender: string) => {
+
+    const {address} = useAccount();
 
     const { data, error } = useReadContract({
-        abi: [{
+        abi: [ {
             "type": "function",
             "name": "allowance",
             "inputs": [
-                {
-                    "name": "owner",
-                    "type": "core::starknet::contract_address::ContractAddress"
-                },
-                {
-                    "name": "spender",
-                    "type": "core::starknet::contract_address::ContractAddress"
-                }
+            {
+                "name": "owner",
+                "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+                "name": "spender",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
             ],
             "outputs": [
-                {
-                    "type": "core::integer::u256"
-                }
+            {
+                "type": "core::integer::u256"
+            }
             ],
             "state_mutability": "view"
         }],
@@ -90,4 +91,9 @@ export const getApprovedAmount = async (contractAddress: `0x${string}`, spender:
     });
 
     return {data, error}
+}
+
+export {
+    GetApprovedAmount,
+    ApproveTokens
 }
