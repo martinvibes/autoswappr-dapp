@@ -59,3 +59,35 @@ export const approveTokens = async (contractAddress: `0x${string}`, spender: str
         throw error;
     }
 };
+
+// func to get approved amount
+export const getApprovedAmount = async (contractAddress: `0x${string}`, spender: string) => {
+
+    const { data, error } = useReadContract({
+        abi: [{
+            "type": "function",
+            "name": "allowance",
+            "inputs": [
+                {
+                    "name": "owner",
+                    "type": "core::starknet::contract_address::ContractAddress"
+                },
+                {
+                    "name": "spender",
+                    "type": "core::starknet::contract_address::ContractAddress"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "core::integer::u256"
+                }
+            ],
+            "state_mutability": "view"
+        }],
+        functionName: "allowance",
+        address: contractAddress,
+        args: [address, spender],
+    });
+
+    return {data, error}
+}
