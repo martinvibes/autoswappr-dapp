@@ -37,66 +37,99 @@ export default function page() {
         </p>
         
         <div className="w-full min-w-[350px] overflow-x-auto max-w-[900px] mt-10">
-          <div className="grid grid-cols-[auto_3fr_2fr_2fr_4fr_auto] font-200 gap-4 items-center text-[#A199B8] text-sm mb-4 px-4">
-            <div className="w-8"></div>
-            <div className="text-left">From</div>
-            <div></div>
-            <div className="text-left">To</div>
-            <div className="text-left">Percentage</div>
-            <div className="text-right">Autoswappr</div>
-          </div>
-          <div className="h-[1px] bg-[#1E1B24] w-full mb-4"></div>
-          
-          {tokenPairs.map((pair, index) => (
-            <div key={pair.id} className="grid grid-cols-[auto_3fr_2fr_2fr_4fr_auto] gap-4 items-center rounded-lg p-4 mb-4">
-              <div className="text-[#A199B8] w-8">{index + 1}.</div>
-              
-              <div className="flex items-center gap-2">
-                <Image src={pair.from.logo} alt={pair.from.name} width={24} height={24} className="h-8 w-8" />
-                <div className="text-left">
-                  <div className="text-white">{pair.from.name}</div>
-                  <div className="text-[#A199B8] text-sm">{pair.from.symbol}</div>
-                </div>
-              </div>
+          <table className="w-full border-collapse">
+            <thead className="">
+              <tr className="border-b border-[#1E1B24]">
 
-              <Image
-                src={arrow}
-                alt="arrow"
-                width={24}
-                height={24}
-                className="-rotate-90"
-              />
-
-              <div className="flex items-center gap-2">
-                <Image src={pair.to.logo} alt={pair.to.name} width={24} height={24} className="h-8 w-8" />
-                <div className="text-left">
-                  <div className="text-white">{pair.to.name}</div>
-                  <div className="text-[#A199B8] text-sm">{pair.to.symbol}</div>
-                </div>
-              </div>
-              <div className="relative w-24">
-                <select
-                  value={pair.percentage}
-                  onChange={(e) => handlePercentageChange(e, pair.id)}
-                  className="bg-[#100827] text-white p-3 text-center rounded-full text-sm outline-none w-full appearance-none pr-8"
+                <th colSpan={2} className="py-3 px-4 font-[200] text-left">From</th>
+                <th className="py-3 px-4 font-[200]"></th>
+                <th className="py-3 px-4 font-[200] text-left">To</th>
+                <th className="py-3 px-4 font-[200] text-left "><div className="ml-12 md:ml-0">Percentage</div></th>
+                <th className="py-3 px-4 font-[200] text-left">Autoswappr</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tokenPairs.map((pair, index) => (
+                <tr 
+                  key={pair.id} 
+                  className=" hover:bg-[#100827]/20 transition-colors"
                 >
-                  <option value="25">25%</option>
-                  <option value="50">50%</option>
-                  <option value="75">75%</option>
-                  <option value="100">100%</option>
-                </select>
-                <div className="absolute right-4 opacity-50 top-1/2 -translate-y-1/2 pointer-events-none">
-                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L5 5L9 1" stroke="#A199B8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-              </div>
+                  <td className="py-4 px-4 text-[#A199B8]">{index + 1}.</td>
+                  
+                  <td className="py-4 px-4">
+                    <div className="flex items-center gap-3">
+                      <Image 
+                        src={pair.from.logo} 
+                        alt={pair.from.name} 
+                        width={32} 
+                        height={32} 
+                        className="rounded-full  w-6 h-6 md:w-8 md:h-8"
+                      />
+                      <div>
+                        <div className="text-white text-sm md:text-base">{pair.from.name}</div>
+                        <div className="text-[#A199B8] text-left text-xs  md:text-sm">{pair.from.symbol}</div>
+                      </div>
+                    </div>
+                  </td>
 
-              <ToggleButton />
-            </div>
-          ))}
+                  <td className=" py-4 px-4">
+                    <Image
+                      src={arrow}
+                      alt="arrow"
+                      width={24}
+                      height={24}
+                      className="-rotate-90"
+                    />
+                  </td>
+
+                  <td className="py-4 px-4">
+                    <div className="flex items-center gap-3">
+                      <Image 
+                        src={pair.to.logo} 
+                        alt={pair.to.name} 
+                        width={32} 
+                        height={32} 
+                        className="rounded-full w-6 h-6 md:w-8 md:h-8"
+                      />
+                      <div>
+                        <div className="text-white text-sm md:text-base">{pair.to.name}</div>
+                        <div className="text-[#A199B8] text-left text-xs  md:text-sm">{pair.to.symbol}</div>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td className="py-4  px-4">
+                    <div className="relative ml-12 md:ml-0 w-24">
+                      <select
+                        value={pair.percentage}
+                        onChange={(e) => handlePercentageChange(e, pair.id)}
+                        className="bg-[#100827] text-white p-2 text-center rounded-full text-sm outline-none w-full appearance-none pr-8"
+                      >
+                        <option value="25">25%</option>
+                        <option value="50">50%</option>
+                        <option value="75">75%</option>
+                        <option value="100">100%</option>
+                      </select>
+                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 1L5 5L9 1" stroke="#A199B8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td className="py-4 ml-auto px-4 text-right">
+                    <ToggleButton />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <AdditionalButton/>
+        <div className="mt-4">
+          <AdditionalButton/>
+        </div>
+        
       </div>
     </div>
   );
