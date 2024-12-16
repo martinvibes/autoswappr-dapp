@@ -67,7 +67,7 @@ const Selecttokens = () => {
   };
 
   return (
-    <div className=" w-full pt-[180px] overflow-x-hidden items-center justify-center flex">
+    <div className=" h-[115vh] md:h-[110vh] overflow-x-hidden items-center justify-center flex">
       <div
         className={`shadow-lg relative rounded-3xl w-[350px] border-[#170F2E] border-2 sm:w-[800px] ${openSans.className} p-6 flex justify-center flex-col items-center`}
       >
