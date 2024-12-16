@@ -1,7 +1,7 @@
 "use client";
 
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import { useConnect, Connector } from "@starknet-react/core"; // Added Connector type
 import { X } from "lucide-react";
 import Image from "next/image";
