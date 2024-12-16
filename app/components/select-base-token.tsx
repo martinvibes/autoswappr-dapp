@@ -11,9 +11,9 @@ export function SelectBaseToken() {
   const [active, setActive] = useState<"USDT" | "USDC">("USDT");
 
   return (
-    <div className="flex relative justify-center items-center pt-[10] h-[110vh] w-full px-4">
+    <div className="flex relative justify-center items-center mt-8 pt-[10] h-[110vh]  w-full px-4">
       <div className="w-full h-[138px] bg-main-bg bg-cover absolute top-0"></div>
-      <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col p-6 md:p-8 mx-4">
+      <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col p-6 md:p-8 mx-4 my-[80px] z-10">
         <button className="absolute right-[20px] top-[20px] hidden md:block">
           <Image
             className="cursor-pointer w-6 h-6"
