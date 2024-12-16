@@ -16,19 +16,22 @@ interface SelectBaseTokenProps {
 export function SelectBaseToken({ onSelect, onClose }: SelectBaseTokenProps) {
   const [active, setActive] = useState<"USDT" | "USDC">("USDT");
   const [imagesLoaded, setImagesLoaded] = useState(false);
-  const [loadedImagesCount, setLoadedImagesCount] = useState(0);
-  
-  // Total number of images to load (USDT, USDC, checked, unchecked, cancel icons)
   const TOTAL_IMAGES = 5;
-
+  
   const handleImageLoad = () => {
-    setLoadedImagesCount(prev => {
-      const newCount = prev + 1;
-      if (newCount === TOTAL_IMAGES) {
+    let count = 0;
+    return () => {
+      count += 1;
+      if (count === TOTAL_IMAGES) {
         setImagesLoaded(true);
       }
-      return newCount;
-    });
+    };
+  };
+
+  const handleTokenSelect = () => {
+    if (onSelect) {
+      onSelect(active);
+    }
   };
 
   return (
@@ -111,7 +114,10 @@ export function SelectBaseToken({ onSelect, onClose }: SelectBaseTokenProps) {
           </div>
         </div>
 
-        <button className="w-full py-3 sm:py-5 my-5 bg-[#100827] rounded-full text-white font-medium hover:bg-[#1a0f35] transition-colors duration-200">
+        <button 
+          onClick={handleTokenSelect}
+          className="w-full py-3 sm:py-5 my-5 bg-[#100827] rounded-full text-white font-medium hover:bg-[#1a0f35] transition-colors duration-200"
+        >
           Next
         </button>
       </div>
