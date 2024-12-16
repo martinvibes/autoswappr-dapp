@@ -41,7 +41,7 @@ function HelpCenter() {
         <div className="mx-auto">
           <h2 className="text-[24px]">Help Center</h2>
         </div>
-        <div className="flex md:flex-row flex-col justify-between mx-auto md:px-4 px-6 w-full md:w-[80%] mt-20">
+        <div className="flex md:flex-row flex-col justify-between mx-auto md:px-24 px-6 w-full md:w-[80%] mt-20">
           <div className=" md:w-[698px] w-full">
             <div className="text-start mb-16">
               <div className="w-full pb-5 border-b-[1px] border-[#382E56] mb-5">
