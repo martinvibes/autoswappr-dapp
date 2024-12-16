@@ -6,7 +6,7 @@ import {
     useReadContract
 } from "@starknet-react/core";
 
-const ApproveTokens = (contractAddress: `0x${string}`, spender: string, amount: bigint) => {
+const ApproveTokens = (contractAddress: `0x${string}`, spender: `0x${string}`, amount: bigint) => {
 
     const {account, address} = useAccount();
 
@@ -60,7 +60,7 @@ const ApproveTokens = (contractAddress: `0x${string}`, spender: string, amount: 
 
 
 // func to get approved amount
-const GetApprovedAmount = (contractAddress: `0x${string}`, spender: string) => {
+const GetApprovedAmount = (contractAddress: `0x${string}`, spender: `0x${string}`) => {
 
     const {address} = useAccount();
 
