@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
+import React from "react";
 import ToggleButton from "../components/toggleButton";
 import Image from "next/image";
 import arrow from "../../public/arrow.svg";
@@ -11,7 +11,7 @@ import AdditionalButton from "../components/additional-button";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 export default function page() {
-  const [percentage, setPercentage] = useState('50');
+
   
   const tokenPairs = [
     { id: 1, from: { name: 'Ethereum', symbol: 'ETH', logo: eth }, to: { name: 'USDC', symbol: 'USDC', logo: usdc }, percentage: '50', enabled: true },
@@ -22,7 +22,7 @@ export default function page() {
   ];
 
   const handlePercentageChange = (e: React.ChangeEvent<HTMLSelectElement>, id: number) => {
-    
+    console.log(e, id);
   };
 
   return (
@@ -33,13 +33,13 @@ export default function page() {
         </h1>
         <p className="text-center text-[14px] text-[#A199B8] max-w-[700px]">
           These are a list of all the tokens you have setup to be auto-swapped to a stable token. 
-          To add more tokens to the list, click on the 'Add More Tokens' Button below.
+          To add more tokens to the list, click on the &apos;Add More Tokens&apos; Button below.
         </p>
         
         <div className="w-full min-w-[350px] overflow-x-auto max-w-[900px] mt-10">
           <table className="w-full border-collapse">
             <thead className="">
-              <tr className="border-b border-[#1E1B24]">
+              <tr className="border-b border-[#1E1B24]  text-white">
 
                 <th colSpan={2} className="py-3 px-4 font-[200] text-left">From</th>
                 <th className="py-3 px-4 font-[200]"></th>

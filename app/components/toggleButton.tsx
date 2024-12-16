@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-function toggleButton() {
+function ToggleButton() {
   const [enabled, setEnabled] = useState(false);
 
   return (
@@ -22,4 +22,4 @@ function toggleButton() {
   );
 }
 
-export default toggleButton;
+export default ToggleButton;
