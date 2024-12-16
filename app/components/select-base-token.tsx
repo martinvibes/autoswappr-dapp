@@ -32,7 +32,7 @@ export function SelectBaseToken({ onSelect, onClose }: SelectBaseTokenProps) {
   };
 
   return (
-    <div className="flex relative justify-center items-center pt-[10] h-[110vh] w-full px-4">
+    <div className="flex relative justify-center items-center mt-8 pt-[10] h-[110vh]  w-full px-4">
       <div className="w-full h-[138px] bg-main-bg bg-cover absolute top-0"></div>
       
       {!imagesLoaded && (
