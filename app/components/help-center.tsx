@@ -1,9 +1,12 @@
 "use client";
 import * as React from "react";
+import { useState } from "react";
 import Select from "./selectOption";
 import Image from "next/image";
 
 function HelpCenter() {
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -19,6 +22,17 @@ function HelpCenter() {
 
     alert("Form submitted successfully!");
   };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      const files = Array.from(event.target.files);
+
+      if (files && files.length > 0) {
+        setSelectedFiles(Array.from(files));
+      }
+    }
+  };
+
   return (
     <main className="relative">
       {/* <Navbar /> */}
@@ -82,23 +96,63 @@ function HelpCenter() {
               </div>
               <div className="flex flex-col gap-y-5">
                 <p>Attachments(Optional)</p>
-                <label
-                  htmlFor="attachments"
-                  className="cursor-pointer py-3 px-6 bg-[#0F96E3] text-white rounded-full text-center block w-fit"
-                >
-                  Choose Files
-                </label>
-                <input
-                  type="file"
-                  id="attachments"
-                  name="attachments"
-                  className="hidden"
-                  multiple
-                />
+                <div className="flex items-center justify-center w-full">
+                  <label
+                    htmlFor="attachments"
+                    className="flex flex-row items-center justify-center w-full h-[54px] rounded-full bg-[#100827] cursor-pointer px-4"
+                  >
+                    <div className="flex flex-row items-center justify-center gap-3 overflow-hidden">
+                      <svg
+                        className="w-6 h-6 text-blue-500"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          strokeWidth="1"
+                          stroke="currentColor"
+                          fill="none"
+                        />
+                        <line
+                          x1="12"
+                          y1="8"
+                          x2="12"
+                          y2="16"
+                          strokeWidth="1"
+                          stroke="currentColor"
+                        />
+                        <line
+                          x1="8"
+                          y1="12"
+                          x2="16"
+                          y2="12"
+                          strokeWidth="1"
+                          stroke="currentColor"
+                        />
+                      </svg>
+
+                      <p className="text-sm text-[#433B5A] truncate font-sans w-full">
+                        {selectedFiles.length > 0
+                          ? selectedFiles.map((file) => file.name).join(", ")
+                          : "Add file or drop files here"}
+                      </p>
+                    </div>
+
+                    <input
+                      id="attachments"
+                      type="file"
+                      className="hidden"
+                      multiple
+                      onChange={handleFileChange}
+                    />
+                  </label>
+                </div>
               </div>
-              <p className="text-[14px] text-[#D2CED8]">
-                Add file or drop files here.
-              </p>
               <button
                 type="submit"
                 className="py-4 md:w-[309px] w-auto  flex items-center justify-center bg-[#0F96E3] rounded-full text-[16px]"
