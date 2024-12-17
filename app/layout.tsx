@@ -19,7 +19,9 @@ export default function RootLayout({
       <StarknetProvider>
         <body className="relative w-full bg-[#08001F] bg-cover bg-center bg-no-repeat">
           <Navbar />
-          {children}
+          <main className="mt-24">        {/* i added margin top here */}
+            {children}
+          </main>
           <Footer />
         </body>
 

@@ -61,11 +61,11 @@ export function WalletModal({ isOpen, setIsOpen }: WalletModalProps) {
     }
   };
 
-  const handleContinue = () => {
-    if (selectedConnector) {
-      connect({ connector: selectedConnector });
+  const connectWallet = (connector: Connector | null) => {
+    if (connector) {
+      connect({ connector });
+      setSelectedConnector(connector);
       setIsOpen(false);
-      setSelectedConnector(null);
     }
   };
 
@@ -129,7 +129,7 @@ export function WalletModal({ isOpen, setIsOpen }: WalletModalProps) {
                     return (
                       <button
                         key={connector.id}
-                        onClick={() => setSelectedConnector(connector)}
+                        onClick={() => connectWallet(connector)}
                         className={`w-full sm:w-[416px] flex items-center justify-between p-4 rounded-full
                           border ${isSelected ? "border-blue-500" : "border-[#2C3356]"} 
                           hover:border-blue-500 transition-colors`}
@@ -166,7 +166,7 @@ export function WalletModal({ isOpen, setIsOpen }: WalletModalProps) {
                         : "bg-[#100827] hover:bg-[#08001F]"
                     } 
                     text-white transition-colors`}
-                  onClick={handleContinue}
+                  onClick={() => connectWallet(selectedConnector)}
                   disabled={!selectedConnector}
                 >
                   Continue
