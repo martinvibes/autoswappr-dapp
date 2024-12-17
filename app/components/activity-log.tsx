@@ -146,8 +146,8 @@ const activityLog = [
 const ActivityLog = () => {
   return (
     <>
-      <section className="bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-10 pt-[160px] md:mt-0 pb-12 mx-auto leading-[19.7px] h-[100vh]">
-        <h1 className="text-center capitalize p-0 mb-8 text-lg md:text-2xl font-[600] text-main-white">
+      <section className="relative bg-cover bg-main-bg md:bg-inherit bg-center bg-no-repeat mt-8 py-[160px] mx-auto h-full overflow-hidden">
+        <h1 className="w-full text-center capitalize mb-8 text-md sm:text-lg md:text-2xl font-[600] text-main-white">
           Autoswappr Activity log
         </h1>
         {/* desktop */}
@@ -160,11 +160,11 @@ const ActivityLog = () => {
               <th className="flex items-center justify-end flex-none w-[27.5%]">Date/Time</th>
             </tr>
           </thead>
-          <tbody className="w-full overflow-y-auto overflow-x-hidden scrollbar-hide max-h-[540px] md:max-h-[520px] xl:max-h-[560px]">
+          <tbody className="w-full overflow-y-scroll overflow-x-hidden scrollbar-hide max-h-[540px] md:max-h-[520px] xl:max-h-[560px]">
             {activityLog.map((data, index) => {
               return (
                 <tr
-                  className="flex items-center justify-between space-x-4 capitalize font-medium w-full py-4"
+                  className="flex items-center justify-between space-x-4 capitalize font-medium w-full py-3"
                   key={index}
                 >
                   <td className="flex items-center justify-start flex-none w-[35%] space-x-4">
@@ -216,7 +216,7 @@ const ActivityLog = () => {
         </table>
         {/* mobile */}
         <table className="sm:hidden leading-[18px] w-full mx-auto">
-          <tbody className="capitalize text-main-white w-full flex flex-col flex-none justify-between h-full max-h-[550px] overflow-auto scrollbar-hide px-2">
+          <tbody className="capitalize text-main-white w-full flex flex-col flex-none justify-between h-full max-h-[550px] overflow-scroll scrollbar-hide px-2">
             <tr className="w-full capitalize text-main-white flex flex-none justify-between text-start border-b border-[#433B5A] pb-3 space-x-4">
               <th className="flex-none flex items-center justify-start w-[50%]">
                 token
@@ -229,7 +229,7 @@ const ActivityLog = () => {
             {activityLog.map((data, index) => {
               return (
                 <tr
-                  className="py-5 flex flex-none justify-between w-full space-x-4"
+                  className="py-2 flex flex-none justify-between w-full space-x-4"
                   key={index}
                 >
                   <td className="w-[50%] flex flex-row flex-none items-center gap-2">
