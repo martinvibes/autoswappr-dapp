@@ -7,20 +7,52 @@ import usdc from "../../public/usdc.svg";
 import checked from "../../public/checked.svg";
 import unchecked from "../../public/unchecked.svg";
 
-export function SelectBaseToken() {
+// Add props interface even if empty for future extensibility
+interface SelectBaseTokenProps {
+  onSelect?: (token: "USDT" | "USDC") => void;
+  onClose?: () => void;
+}
+
+export function SelectBaseToken({ onSelect, onClose }: SelectBaseTokenProps) {
   const [active, setActive] = useState<"USDT" | "USDC">("USDT");
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const TOTAL_IMAGES = 5;
+  
+  const handleImageLoad = () => {
+    let count = 0;
+    return () => {
+      count += 1;
+      if (count === TOTAL_IMAGES) {
+        setImagesLoaded(true);
+      }
+    };
+  };
+
+  const handleTokenSelect = () => {
+    if (onSelect) {
+      onSelect(active);
+    }
+  };
 
   return (
-    <div className="flex relative justify-center items-center pt-[10] h-[110vh] w-full px-4">
+    <div className="flex relative justify-center items-center mt-8 pt-[10] h-[110vh]  w-full px-4">
       <div className="w-full h-[138px] bg-main-bg bg-cover absolute top-0"></div>
-      <div className="flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col p-6 md:p-8 mx-4">
-        <button className="absolute right-[20px] top-[20px] hidden md:block">
+      
+      {!imagesLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-main-bg">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white"></div>
+        </div>
+      )}
+
+      <div className={`flex relative justify-center items-center rounded-3xl border border-[#170F2E] text-center w-full max-w-[50rem] flex-col p-6 md:p-8 mx-4 ${!imagesLoaded ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
+        <button className="absolute right-[20px] top-[20px] hidden md:block" aria-label="Close selection" onClick={onClose}>
           <Image
             className="cursor-pointer w-6 h-6"
             src={cancel}
             alt="cancel image"
             width={24}
             height={24}
+            onLoad={handleImageLoad}
           />
         </button>
         <h1 className="text-base sm:text-[24px] flex-wrap font-medium text-white mb-5">
@@ -41,6 +73,7 @@ export function SelectBaseToken() {
               src={usdt}
               alt="USDT"
               className="md:w-[140px] md:h-[140px] w-[50px] h-[50px] mb-3"
+              onLoad={handleImageLoad}
             />
             <p className="text-base sm:text-xl font-medium text-white mb-1">
               Tether
@@ -51,6 +84,7 @@ export function SelectBaseToken() {
                 src={active === "USDT" ? checked : unchecked}
                 alt="selection indicator"
                 className="md:w-6 md:h-6 w-4 h-4"
+                onLoad={handleImageLoad}
               />
             </div>
           </div>
@@ -63,6 +97,7 @@ export function SelectBaseToken() {
               src={usdc}
               alt="USDC"
               className="md:w-[140px] md:h-[140px] w-[50px] h-[50px] mb-3"
+              onLoad={handleImageLoad}
             />
             <p className="text-base sm:text-xl font-medium text-white mb-1">
               USD Coin
@@ -73,12 +108,16 @@ export function SelectBaseToken() {
                 src={active === "USDC" ? checked : unchecked}
                 alt="selection indicator"
                 className="md:w-6 md:h-6 w-4 h-4"
+                onLoad={handleImageLoad}
               />
             </div>
           </div>
         </div>
 
-        <button className="w-full py-3 sm:py-5 my-5 bg-[#100827] rounded-full text-white font-medium hover:bg-[#1a0f35] transition-colors duration-200">
+        <button 
+          onClick={handleTokenSelect}
+          className="w-full py-3 sm:py-5 my-5 bg-[#100827] rounded-full text-white font-medium hover:bg-[#1a0f35] transition-colors duration-200"
+        >
           Next
         </button>
       </div>
