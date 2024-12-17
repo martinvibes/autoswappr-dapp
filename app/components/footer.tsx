@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 import { footerDocumentation, footerIcon } from "./Footer";
 
 const Footer = () => {
@@ -15,27 +16,27 @@ const Footer = () => {
       {/* Social icons section */}
       <div className="flex items-center gap-6">
         {footerIcon.map((icon, index) => (
-          <a
+          <Link
             key={index}
             href={icon.path}
             className="text-sm md:text-xl hover:opacity-80 cursor-pointer"
           >
             <icon.icons />
             {/* w-4 h-4 md:w-5 md:h-5  */}
-          </a>
+          </Link>
         ))}
       </div>
 
       {/* Navigation section */}
       <div className="flex flex-row items-center gap-4 md:gap-8">
         {footerDocumentation.map((doc, index) => (
-          <a
+          <Link
             key={index}
             href={doc.path}
             className="text-sm md:text-base hover:opacity-80 cursor-pointer"
           >
             {doc.name}
-          </a>
+          </Link>
         ))}
       </div>
     </footer>
