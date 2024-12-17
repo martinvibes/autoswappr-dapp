@@ -1,28 +1,39 @@
 'use client'
 
-import React from "react";
+import React, { useState } from "react";
 import ToggleButton from "../components/toggleButton";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import arrow from "../../public/arrow.svg";
 import eth from "../../public/coin-logos/eth-logo.png"
 import usdc from "../../public/coin-logos/usdc-logo.png"
 import { Open_Sans } from "next/font/google";
 import AdditionalButton from "../components/additional-button";
-
+interface TokenPair {
+  id: number;
+  from: { name: string; symbol: string; logo: StaticImageData };
+  to: { name: string; symbol: string; logo: StaticImageData };
+  percentage: string;
+  enabled: boolean;
+}
 const openSans = Open_Sans({ subsets: ["latin"] });
 export default function page() {
 
   
-  const tokenPairs = [
+  const [tokenPairs, setTokenPairs] = useState<TokenPair[]>([
     { id: 1, from: { name: 'Ethereum', symbol: 'ETH', logo: eth }, to: { name: 'USDC', symbol: 'USDC', logo: usdc }, percentage: '50', enabled: true },
     { id: 2, from: { name: 'Ethereum', symbol: 'ETH', logo: eth }, to: { name: 'USDC', symbol: 'USDC', logo: usdc }, percentage: '50', enabled: true },
     { id: 3, from: { name: 'Ethereum', symbol: 'ETH', logo: eth }, to: { name: 'USDC', symbol: 'USDC', logo: usdc }, percentage: '50', enabled: true },
     { id: 4, from: { name: 'Ethereum', symbol: 'ETH', logo: eth }, to: { name: 'USDC', symbol: 'USDC', logo: usdc }, percentage: '50', enabled: false },
     { id: 5, from: { name: 'Ethereum', symbol: 'ETH', logo: eth }, to: { name: 'USDC', symbol: 'USDC', logo: usdc }, percentage: '50', enabled: true },
-  ];
+  ]);
 
   const handlePercentageChange = (e: React.ChangeEvent<HTMLSelectElement>, id: number) => {
-    console.log(e, id);
+    const newPercentage = e.target.value;
+    setTokenPairs((prevTokenPairs) =>
+      prevTokenPairs.map((pair) =>
+        pair.id === id ? { ...pair, percentage: newPercentage } : pair
+      )
+    );
   };
 
   return (
