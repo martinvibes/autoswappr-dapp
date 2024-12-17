@@ -6,6 +6,7 @@ import Image from "next/image";
 
 function HelpCenter() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [isDragOver, setIsDragOver] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -31,6 +32,24 @@ function HelpCenter() {
         setSelectedFiles(Array.from(files));
       }
     }
+  };
+
+  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    setIsDragOver(false);
+    if (event.dataTransfer.files) {
+      const files = Array.from(event.dataTransfer.files) as File[];
+      setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
+    }
+  };
+
+  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDragOver(false);
   };
 
   return (
@@ -96,10 +115,17 @@ function HelpCenter() {
               </div>
               <div className="flex flex-col gap-y-5">
                 <p>Attachments(Optional)</p>
-                <div className="flex items-center justify-center w-full">
+                <div
+                  className="flex items-center justify-center w-full"
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleDrop}
+                >
                   <label
                     htmlFor="attachments"
-                    className="flex flex-row items-center justify-center w-full h-[54px] rounded-full bg-[#100827] cursor-pointer px-4"
+                    className={`flex flex-row items-center justify-center w-full h-[54px] rounded-full ${
+                      isDragOver ? "bg-blue-300" : "bg-[#100827]"
+                    } cursor-pointer px-4`}
                   >
                     <div className="flex flex-row items-center justify-center gap-3 overflow-hidden">
                       <svg
