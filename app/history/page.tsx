@@ -29,7 +29,7 @@ export default function DexHistory() {
 
   return (
     <>
-      <div className="hidden md:block w-full h-[100px] bg-main-bg bg-no-repeat bg-cover" />
+      <div className="hidden md:block w-full" />
       <section className="bg-cover bg-main-bg  md:bg-inherit bg-center bg-no-repeat mt-10 pt-20 md:mt-0 md:py-16 pb-10 leading-[19.7px] min-h-screen flex flex-col justify-center items-center">
         <h1 className="text-center capitalize pb-8 text-2xl text-main-white font-semibold">history log</h1>
 
@@ -90,7 +90,6 @@ export default function DexHistory() {
           </table>
         </div>
       </section>
-      <div className="hidden md:block w-full h-[50px] bg-main-bg bg-no-repeat bg-cover bottom-0 transform rotate-180" />
     </>
   );
 }
