@@ -16,7 +16,7 @@ interface TokenPair {
   enabled: boolean;
 }
 const openSans = Open_Sans({ subsets: ["latin"] });
-export default function page() {
+export default function Overview() {
 
   
   const [tokenPairs, setTokenPairs] = useState<TokenPair[]>([
