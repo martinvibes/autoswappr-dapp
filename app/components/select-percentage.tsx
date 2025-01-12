@@ -127,13 +127,13 @@ const BaseTokenBlock = ({
       <div className="w-full flex gap-8 sm:gap-16">
         {[
           {
-            logo: "/usdt-logo.svg",
+            logo: "/usdt.svg",
             label: "Usdt",
             value: "usdt",
             id: "usdt",
           },
           {
-            logo: "/usdc-logo.svg",
+            logo: "/usdc.svg",
             label: "Usdc",
             value: "usdc",
             id: "usdc",
