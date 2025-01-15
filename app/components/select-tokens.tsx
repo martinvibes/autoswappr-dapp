@@ -13,7 +13,6 @@ import { UncheckedIcon } from "@/svgs/UncheckedIcon";
 import { CheckIcon } from "@/svgs/CheckIcon";
 import { TimeIcon } from "@/svgs/TimeIcon";
 import { SearchIcon } from "@/svgs/SearchIcon";
-import { CloseButton } from "@/svgs/CloseButton";
 
 type Coin = {
   key: string;

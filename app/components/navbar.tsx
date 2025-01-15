@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import WalletBar from "./WalletBar";
 import Image from "next/image";
-import Logo from "@/public/autoswappr.png";
 import { X } from "lucide-react";
 import menu from "@/public/menu-11.svg";
 import MobileMenu from "./mobile-menu";

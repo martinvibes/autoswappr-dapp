@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   useContract,
   useReadContract,
@@ -61,7 +62,6 @@ export function useContractWriteUtility(
 
   const {
     sendAsync: writeAsync,
-    send,
     data: writeData,
     isPending: writeIsPending,
     error,
@@ -79,5 +79,6 @@ export function useContractWriteUtility(
     waitIsLoading,
     waitData,
     calls,
+    error,
   };
 }

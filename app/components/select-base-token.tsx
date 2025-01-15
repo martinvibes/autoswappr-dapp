@@ -5,7 +5,6 @@ import usdt from "../../public/usdt.svg";
 import usdc from "../../public/usdc.svg";
 import checked from "../../public/checked.svg";
 import unchecked from "../../public/unchecked.svg";
-import { X } from "lucide-react";
 
 interface SelectBaseTokenProps {
   onSelect?: (token: "USDT" | "USDC") => void;

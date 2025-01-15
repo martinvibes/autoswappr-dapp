@@ -9,7 +9,6 @@ interface DisconnectWalletModalProps {
 }
 
 export default function DisconnectModal({
-  isOpen,
   setIsOpen,
 }: DisconnectWalletModalProps) {
   const { disconnect } = useDisconnect();

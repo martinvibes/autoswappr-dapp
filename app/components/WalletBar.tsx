@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAccount } from "@starknet-react/core";
 import { WalletModal } from "./WalletModal";
 import Address from "./address";
 import { createPortal } from "react-dom";
 import LockBodyScroll from "./lock-body-scroll";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 const WalletBar: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const router = useRouter();
+  // const router = useRouter();
   const { address } = useAccount();
 
   // useEffect(() => {
