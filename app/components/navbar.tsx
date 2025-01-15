@@ -8,18 +8,20 @@ import menu from "@/public/menu-11.svg";
 import MobileMenu from "./mobile-menu";
 import { createPortal } from "react-dom";
 import LockBodyScroll from "./lock-body-scroll";
+import { useAccount } from "@starknet-react/core";
 // import Link from "next/link";
 // import { TetherLogo } from "@/assets/general";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { address } = useAccount();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const navLinks = [
-    { title: "Home", href: "/" },
+    { title: "AutoSwappr", href: "/" },
     { title: "Activity", href: "/activity-log" },
     { title: "Dex", href: "/dex" },
   ];
@@ -43,7 +45,7 @@ const Navbar = () => {
         >
           <img
             src="/auto-swappr-logo.png"
-            className="w-[200px] hidden md:inline-block"
+            className="w-[150px] hidden md:inline-block"
             alt=""
           />
           <img
@@ -54,18 +56,20 @@ const Navbar = () => {
         </button>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-6 md:left-[300px]">
-          {navLinks.map((link) => (
-            <li key={link.title}>
-              <a
-                href={link.href}
-                className=" text-[#e7ecf0] text-sm md:text-lg  hover:text-white transition-colors"
-              >
-                {link.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {address && (
+          <ul className="hidden md:flex items-center gap-6 md:left-[300px]">
+            {navLinks.map((link) => (
+              <li key={link.title}>
+                <a
+                  href={link.href}
+                  className=" text-[#e7ecf0] text-sm md:text-lg  hover:text-white transition-colors"
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {/* Connect Wallet Button */}
@@ -85,30 +89,6 @@ const Navbar = () => {
           <Image src={menu} alt="menu icon" width={24} height={24} />
         )}
       </button>
-
-      {/* {isMenuOpen && (
-        <div className="mt-10 md:hidden">
-          <div className="flex flex-col space-y-4">
-            <Link href="/" className="text-primaryText text-base hover:text-[#49ABD2]">
-              Home
-            </Link>
-            <Link href="#" className="text-primaryText text-base hover:text-[#49ABD2]">
-              Activity
-            </Link>
-            <Link href="/dex" className="text-primaryText text-base hover:text-[#49ABD2]">
-              Dex
-            </Link>
-          </div>
-
-          <div className="mt-6 flex flex-col  space-y-4">
-            <div className="flex items-center justify-center gap-x-2 bg-[#100827] rounded-full px-4 py-2">
-              <TetherLogo />
-              <span className="text-primaryText text-sm">USDT: $114,000</span>
-            </div>
-            <WalletBar />
-          </div>
-        </div>
-      )} */}
     </nav>
   );
 };

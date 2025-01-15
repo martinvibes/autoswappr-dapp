@@ -34,10 +34,9 @@ export function WalletModal({ isOpen, setIsOpen }: WalletModalProps) {
     null
   );
 
-  const handleConnect = () => {
+  const handleConnect = async () => {
     if (selectedConnector) {
       connect({ connector: selectedConnector });
-      setIsOpen(false);
     }
   };
 

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
-import { Open_Sans } from "next/font/google";
 
 import React, { useState } from "react";
 import btc from "../../public/BtcIcon.svg";
@@ -15,8 +14,6 @@ import { CheckIcon } from "@/svgs/CheckIcon";
 import { TimeIcon } from "@/svgs/TimeIcon";
 import { SearchIcon } from "@/svgs/SearchIcon";
 import { CloseButton } from "@/svgs/CloseButton";
-
-const openSans = Open_Sans({ subsets: ["latin"] });
 
 type Coin = {
   key: string;
@@ -69,22 +66,17 @@ const Selecttokens = () => {
   return (
     <div className=" h-[115vh] md:h-[110vh] overflow-x-hidden items-center justify-center flex">
       <div
-        className={`shadow-lg relative rounded-3xl w-[350px] border-[#170F2E] border-2 sm:w-[800px] ${openSans.className} p-6 flex justify-center flex-col items-center`}
+        className={`shadow-lg relative rounded-[32px] w-[350px] border-[#170F2E] border-2 sm:w-fit p-12 flex justify-center flex-col items-center`}
       >
-        <button className="hidden md:block absolute top-4 right-4 z-10">
-          <CloseButton />
-        </button>
         <p className="font-[600]  text-center sm:text-left text-lg sm:text-[24px] mb-4">
           Select token(s) to auto-swap from
         </p>
 
-        <p className="text-center font-normal text-[12px] sm:text-[16px]  leading-[22px]">
+        <p className="text-center font-normal text-[12px] sm:text-[16px]  leading-[22px] max-w-[624px] text-[#A199B8] mb-7">
           You can select multiple tokens to auto-swap from here. You can select
           how many percent of that token should be auto-swapped whenever you get
           funded.
         </p>
-        <br />
-
         <form className="mx-auto flex items-center justify-center flex-col">
           <div className="relative bg-[#100827] px-4 py-2 flex items-center justify-between w-full rounded-full">
             <input

@@ -1,99 +1,92 @@
-import { cairo } from "starknet";
+// import { cairo } from "starknet";
 import {
-    useAccount,
-    useContract,
-    useSendTransaction,
-    useReadContract
+  useContract,
+  useReadContract,
+  useSendTransaction,
+  useTransactionReceipt,
 } from "@starknet-react/core";
+import { useMemo } from "react";
 
-const ApproveTokens = (contractAddress: `0x${string}`, spender: `0x${string}`, amount: bigint) => {
+/**
+ * Fetches data from a StarkNet contract.
+ * @param {string} functionName - The name of the contract function to call.
+ * @param {Array} args - The arguments to pass to the contract function.
+ * @param {object} abi - The ABI of the contract.
+ * @param {string} address - The address of the contract.
+ * @returns {object} - The result of the contract read operation.
+ */
+export function useContractFetch(
+  abi: any,
+  functionName: string,
+  address: `0x${string}`,
+  args: any[] = []
+) {
+  const { data, isLoading, refetch, isFetching, error } = useReadContract({
+    abi: abi,
+    functionName: functionName,
+    address: address,
+    args: args,
+  });
 
-    const {account, address} = useAccount();
-
-    // Contract Initialization
-    const { contract } = useContract({
-        abi: [ {
-            "type": "function",
-            "name": "approve",
-            "inputs": [
-            {
-                "name": "spender",
-                "type": "core::starknet::contract_address::ContractAddress"
-            },
-            {
-                "name": "amount",
-                "type": "core::integer::u256"
-            }
-            ],
-            "outputs": [
-            {
-                "type": "core::bool"
-            }
-            ],
-            "state_mutability": "external"
-        }],
-        address: contractAddress,
-        provider: account
-    });
-
-    const { isError, error, send, data, isPending } = useSendTransaction({ 
-        calls: 
-        contract && address 
-            ? [contract.populate("approve", [spender, cairo.uint256(amount)])] 
-            : undefined, 
-    }); 
-
-    try {
-        if (!amount || !spender || !contractAddress) {
-            return;
-        }
-        
-        send()
-
-        return {data, isPending, isError, error};
-
-    } catch (error) {
-        console.error('Error calling approve:', error);
-        throw error;
-    }
-};
-
-
-// func to get approved amount
-const GetApprovedAmount = (contractAddress: `0x${string}`, spender: `0x${string}`) => {
-
-    const {address} = useAccount();
-
-    const { data, error } = useReadContract({
-        abi: [ {
-            "type": "function",
-            "name": "allowance",
-            "inputs": [
-            {
-                "name": "owner",
-                "type": "core::starknet::contract_address::ContractAddress"
-            },
-            {
-                "name": "spender",
-                "type": "core::starknet::contract_address::ContractAddress"
-            }
-            ],
-            "outputs": [
-            {
-                "type": "core::integer::u256"
-            }
-            ],
-            "state_mutability": "view"
-        }],
-        functionName: "allowance",
-        address: contractAddress,
-        args: [address, spender],
-    });
-
-    return {data, error}
+  return { data, isLoading, refetch, isFetching, error };
 }
 
-export {
-    GetApprovedAmount,
-    ApproveTokens
+/**
+ * A utility hook for writing data to a StarkNet contract.
+ * @param {Object} params - Parameters for the contract write operation.
+ * @param {string} params.functionName - The name of the contract function to call.
+ * @param {Array} params.args - The arguments to pass to the contract function.
+ * @param {object} params.abi - The ABI of the contract.
+ * @param {string} params.address - The address of the contract.
+ * @param {string} [params.user] - The address of the user (optional).
+ * @returns {object} - Returns an object with writing functions and states.
+ */
+export function useContractWriteUtility(
+  functionName: string,
+  args: any[],
+  abi: any,
+  contract_address: `0x${string}`,
+  user: any
+) {
+  const { contract } = useContract({ abi, address: contract_address });
+
+  const calls = useMemo(() => {
+    if (
+      !contract ||
+      !args ||
+      args.some((arg) => arg === undefined || arg === null)
+    ) {
+      return undefined;
+    }
+
+    return [contract.populate(functionName, args)];
+  }, [contract, functionName, args]);
+
+  const {
+    sendAsync: writeAsync,
+    send,
+    data: writeData,
+    isPending: writeIsPending,
+    error,
+  } = useSendTransaction({ calls });
+
+  //   const {
+  //     writeAsync,
+  //     data: writeData,
+  //     isPending: writeIsPending,
+  //   } = useContractWrite({ calls });
+
+  const { isLoading: waitIsLoading, data: waitData } = useTransactionReceipt({
+    hash: writeData?.transaction_hash,
+    watch: true,
+  });
+
+  return {
+    writeAsync,
+    writeData,
+    writeIsPending,
+    waitIsLoading,
+    waitData,
+    calls,
+  };
 }
