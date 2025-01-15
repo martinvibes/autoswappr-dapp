@@ -13,11 +13,11 @@ const WalletBar: React.FC = () => {
   const router = useRouter();
   const { address } = useAccount();
 
-  useEffect(() => {
-    if (address) {
-      router.push("/select-base-token");
-    }
-  }, [address]);
+  // useEffect(() => {
+  //   if (address) {
+  //     router.push("/select-base-token");
+  //   }
+  // }, [address]);
 
   const toggleModal = (state: boolean) => {
     setIsModalOpen(state);

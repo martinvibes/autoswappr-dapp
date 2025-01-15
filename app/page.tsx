@@ -34,14 +34,6 @@ export default function Home() {
           <h1 className="text-2xl md:text-[48px] md:leading-[65px] font-semibold text-[#F9F9F9] max-w-[280px] md:max-w-full">
             Your Tokens, Your Rules
           </h1>
-          <button
-            className="p-4 bg-red-600 text-white rounded-md"
-            onClick={() => {
-              writeAsync();
-            }}
-          >
-            swap
-          </button>
           <p className="mt-2 mb-6 md:mb-8 text-sm md:text-base md:leading-[22px] text-[#A199B8] max-w-[280px] md:max-w-full">
             Set up auto-swaps for multiple tokens and percentages with ease.
           </p>
