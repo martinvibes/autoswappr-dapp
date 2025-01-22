@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Select the percent",
 };
 
-  
 export default function _SelectPercentage() {
-  return <SelectPercentage />;
+  // return <SelectPercentage />;
+  return <div></div>;
 }
