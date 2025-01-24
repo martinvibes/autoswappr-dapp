@@ -27,10 +27,10 @@ function GrantPermissionModal({
           Give Autoswappr Permission
         </h2>
         <p className="text-base leading-[22px] text-[#A199B8] py-[60px] px-[55px] my-6">
-          By clicking the 'Continue' button, you are giving Autoswappr access to
-          spend your tokens as soon as they get into your wallet, so they can
-          automatically be swapped to your preferred stable base token. Do you
-          wish to continue?
+          By clicking the &apos;Continue&apos; button, you are giving Autoswappr
+          access to spend your tokens as soon as they get into your wallet, so
+          they can automatically be swapped to your preferred stable base token.
+          Do you wish to continue?
         </p>
         <div className="grid grid-cols-2 gap-x-6 items-center justify-center text-base leading-[22px] text-[#F9F9F9]">
           <button

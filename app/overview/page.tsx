@@ -13,7 +13,6 @@ import { useContractWriteUtility } from "../utils/helper";
 import { swappr_contract_address } from "../utils/addresses";
 import { ERC20_ABI } from "../abis/erc20-abi";
 import { supportedTokens } from "../utils/data";
-import { useRouter } from "next/navigation";
 interface TokenPair {
   id: number;
   from: { name: string; symbol: string; logo: StaticImageData };
@@ -22,7 +21,6 @@ interface TokenPair {
   enabled: boolean;
 }
 export default function Overview() {
-  const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
   const [isAddingToken, setIsAddingToken] = useState(false);
   const [tokenSelected, setTokenSelected] = useState<
@@ -40,7 +38,7 @@ export default function Overview() {
   );
 
   // TODO: fetch this from the backend
-  const [tokenPairs, setTokenPairs] = useState<TokenPair[]>([
+  const [tokenPairs] = useState<TokenPair[]>([
     {
       id: 1,
       from: { name: "Ethereum", symbol: "ETH", logo: eth },
