@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const navLinks = [
     { title: "Home", href: "/" },
-    { title: "AutoSwappr", href: "/" },
+    { title: "AutoSwap", href: "/select-tokens" },
     { title: "Activity", href: "/activity-log" },
     { title: "Dex", href: "/dex" },
   ];
