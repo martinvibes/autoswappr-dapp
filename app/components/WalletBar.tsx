@@ -1,12 +1,6 @@
 "use client";
-
-import { useState } from "react";
 import { useAccount } from "@starknet-react/core";
-import { WalletModal } from "./WalletModal";
 import Address from "./address";
-import { createPortal } from "react-dom";
-import LockBodyScroll from "./lock-body-scroll";
-// import { useRouter } from "next/navigation";
 
 function WalletBar({
   toggleModal,

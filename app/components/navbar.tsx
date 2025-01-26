@@ -7,16 +7,11 @@ import menu from "@/public/menu-11.svg";
 import MobileMenu from "./mobile-menu";
 import { createPortal } from "react-dom";
 import LockBodyScroll from "./lock-body-scroll";
-import { useAccount } from "@starknet-react/core";
 import { WalletModal } from "./WalletModal";
-// import Link from "next/link";
-// import { TetherLogo } from "@/assets/general";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [connectModalIsOpen, setConnectModalIsOpen] = useState(false);
-
-  const { address } = useAccount();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
