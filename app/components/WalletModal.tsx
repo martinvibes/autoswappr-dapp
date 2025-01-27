@@ -9,17 +9,17 @@ const walletDetails = {
   argentX: {
     name: "Argent",
     subtext: "WEBSITE",
-    icon: "/assets/wallets/argent.svg",
+    icon: "/argent.svg",
   },
   webwallet: {
     name: "Argent",
     subtext: "MOBILE",
-    icon: "/assets/wallets/argent.svg",
+    icon: "/argent.svg",
   },
   braavos: {
     name: "Braavos",
     subtext: "WEBSITE",
-    icon: "/assets/wallets/braavos.svg",
+    icon: "/braavos.svg",
   },
 };
 
