@@ -87,7 +87,10 @@ const ActivityLog = () => {
             </div>
             <div className="flex flex-col gap-y-4 py-4 px-5 max-h-[900px] overflow-scroll">
               {dummyActivites.map((activity, i) => (
-                <div className="grid grid-cols-[50px_50px_1fr_1fr] sm:grid-cols-4 py-3 gap-x-4">
+                <div
+                  className="grid grid-cols-[50px_50px_1fr_1fr] sm:grid-cols-4 py-3 gap-x-4"
+                  key={i}
+                >
                   <div className="flex items-center gap-x-3 text-[#4C5053]">
                     <span className="text-xs font-semibold">{i + 1}.</span>
                     <Image
